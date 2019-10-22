@@ -15,11 +15,11 @@ class TestFrameX extends React.Component {
 class TestFrame1 extends React.Component {
   render() {
     return (
-      <>
-        <TestFrameX/>
+      <div>
         <h1>Text from frame1</h1>
-        <Rate rate={5} totalStars={7}/>
-      </>
+        <TestFrameX />
+        <Rate totalStars={11} initialRate={6} />
+      </div>
     )
   };
 }
