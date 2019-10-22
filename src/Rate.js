@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './Rate.css';
 
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { FaStar } from 'react-icons/fa';
@@ -21,40 +21,48 @@ function StarRating({ totalStars = 5 }) {
   return createArray(totalStars).map((n, i) => <Star key={i} />);
 }
 
-function Rate({ totalStars = 12, rate = 0  }) {
-  const [selectedStars, setSelectedStars] = useState(rate);
-
-  const filterSetSelectedStars = (rate) => {
-    setSelectedStars(Math.max ( Math.min ( rate, totalStars ) , 0 ));
-  }
-
-  const MoreRating = ({ Icon = FiThumbsUp, onSelect = f => f }) => (
-    <Icon
-      class="ratemore"
-      onClick={() => filterSetSelectedStars(selectedStars + 1)}
-    />
-  );
-
-  const LessRating = ({ Icon = FiThumbsDown, onSelect = f => f }) => (
+/*
+  LessRating ( Icon = FiThumbsDown, onSelect = f ) {
     <Icon
       class="rateless"
-      onClick={() => filterSetSelectedStars(selectedStars - 1)}
+      onClick={() => this.state.currentRate - 1}
     />
-  );
+  }
+*/
 
-  return (
-    <div class="ratearea">
-      <LessRating/>
-      {createArray(totalStars).map((n,i) => (
+class Rate extends React.Component {
+  constructor(props) {
+    super(props);
+    let rate = this.props.initialRate != null ? this.props.initialRate : 4;
+    this.state={ currentRate: rate};
+  }
+
+  setSelectedStars(i) {
+    this.setState({currentRate : i});
+  }
+
+  render() {
+    return (
+      <div className="ratearea">
+      <FiThumbsUp
+        className="ratemore"
+        onClick={() => this.setState({currentRate : this.state.currentRate +1})}
+      />
+      {createArray(this.props.totalStars).map((n,i) => (
         <Star
           key={i}
-          selected={selectedStars > i}
-          onSelect={() => setSelectedStars(i + 1)}
+          selected={this.state.currentRate > i}
+          onSelect={() => this.setSelectedStars(i + 1)}
         />
       ))}
-      <MoreRating/>
-      <p>Rate is {selectedStars} out of {totalStars} stars.</p>
-    </div>);
+      <FiThumbsDown
+        className="rateless"
+        onClick={() => this.setState({currentRate : this.state.currentRate -1})}
+      />
+      <h2>Render in Rate {this.state.currentRate}</h2>
+      </div>
+    );
+  }
 }
 
 export {Rate};
