@@ -32,12 +32,19 @@ class Rate extends React.Component {
     this.setState({currentRate : i});
   }
 
+  setCurrentRate = (rate) => {
+    let limitedRate = Math.max(Math.min(rate,this.props.totalStars),0);
+    console.log("Limitedrate=" + limitedRate)
+    this.setState({currentRate : limitedRate});
+  }
+
   render() {
     return (
       <div className="ratearea">
+      <p>Test-txt: {this.state.currentRate}</p>
       <FiThumbsUp
         className="ratemore"
-        onClick={() => this.setState({currentRate : this.state.currentRate +1})}
+        onClick={() => this.setCurrentRate(this.state.currentRate +1)}
       />
       {createArray(this.props.totalStars).map((n,i) => (
         <Star
@@ -48,7 +55,7 @@ class Rate extends React.Component {
       ))}
       <FiThumbsDown
         className="rateless"
-        onClick={() => this.setState({currentRate : this.state.currentRate -1})}
+        onClick={() => this.setCurrentRate(this.state.currentRate -1)}
       />
       <h2>Render in Rate {this.state.currentRate}</h2>
       </div>
