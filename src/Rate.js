@@ -21,15 +21,6 @@ function StarRating({ totalStars = 5 }) {
   return createArray(totalStars).map((n, i) => <Star key={i} />);
 }
 
-/*
-  LessRating ( Icon = FiThumbsDown, onSelect = f ) {
-    <Icon
-      class="rateless"
-      onClick={() => this.state.currentRate - 1}
-    />
-  }
-*/
-
 class Rate extends React.Component {
   constructor(props) {
     super(props);
