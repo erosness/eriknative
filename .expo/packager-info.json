@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 5615,
+  "packagerPort": null,
+  "packagerPid": null,
   "expoServerNgrokUrl": "https://d4-kgt.anonymous.eriknative.exp.direct",
   "packagerNgrokUrl": "https://packager.d4-kgt.anonymous.eriknative.exp.direct",
-  "ngrokPid": 5647,
+  "ngrokPid": 17738,
   "webpackServerPort": 19006
 }
