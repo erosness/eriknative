@@ -15,11 +15,17 @@ class TestFrameX extends React.Component {
 class TestFrame1 extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Text from frame1</h1>
-        <TestFrameX />
-        <Rate totalStars={11} initialRate={6} />
-      </div>
+      <View style={{flex:1}}>
+        <View style={{backgroundColor: 'powderblue', flex:5}}>
+          <h1>Text from frame1</h1>
+        </View>
+        <View style={{backgroundColor: 'skyblue'}}>
+          <TestFrameX style={{flex: 4, backgroundColor: 'powderblue'}} />
+        </View>
+        <View style={{backgroundColor: 'steelblue'}}>
+          <Rate totalStars={11} initialRate={6} style={{flex: 4, backgroundColor: 'powderblue'}}  />
+        </View>
+      </View>
     )
   };
 }
