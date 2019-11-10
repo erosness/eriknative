@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 
 import {TestFrame1} from './src/TestFrame1';
+import {SmServers} from './src/SmServers';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -13,6 +14,7 @@ export default class App extends React.Component {
     return (
       <div>
         <TestFrame1 />
+        <SmServers />
       </div>
     );
   }
