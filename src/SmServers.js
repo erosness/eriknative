@@ -8,6 +8,16 @@ class SmServers extends React.Component {
   }
 
   componentDidMount() {
+    this.timer = setInterval(() => this.fetchIpAndPort(), 5000)
+  }
+
+
+  fetchIpAndPort() {
+    console.log("fetch IP & port")
+    this.setState({
+      isLoading: true,
+    })
+
     return fetch('http://10.0.1.107:5055/v1/sm/zeroconf', {
 //    return fetch('https://facebook.github.io/react-native/movies.json', {
       method: 'GET',
