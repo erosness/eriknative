@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 19322,
-  "expoServerNgrokUrl": "https://gh-p8z.anonymous.eriknative.exp.direct",
-  "packagerNgrokUrl": "https://packager.gh-p8z.anonymous.eriknative.exp.direct",
-  "ngrokPid": 19376,
+  "packagerPid": 23139,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": 19006
 }
