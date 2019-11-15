@@ -8,7 +8,7 @@ class SmServers extends React.Component {
   }
 
   componentDidMount() {
-    return fetch('http://10.0.1.105:5055/v1/sm/zeroconf', {
+    return fetch('http://10.0.1.107:5055/v1/sm/zeroconf', {
 //    return fetch('https://facebook.github.io/react-native/movies.json', {
       method: 'GET',
       headers: {
