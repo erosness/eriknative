@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
+import { smStyles } from './SmFrameStyle';
 
 class SmServers extends React.Component {
   constructor(props){
@@ -8,24 +9,18 @@ class SmServers extends React.Component {
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => this.fetchIpAndPort(), 5000)
+    this.fetchIpAndPort()
+    this.timer = setInterval(() => this.fetchIpAndPort(), 10000)
   }
 
-
   fetchIpAndPort() {
-    console.log("fetch IP & port")
-    this.setState({
-      isLoading: true,
-    })
-
     return fetch('http://10.0.1.107:5055/v1/sm/zeroconf', {
-//    return fetch('https://facebook.github.io/react-native/movies.json', {
       method: 'GET',
       headers: {
         Accept: '*',
       }
     })
-    .then((response) => response.json())
+    .then((response) => {return response.json();})
     .then((responseJson) => {
 
       this.setState({
@@ -40,23 +35,20 @@ class SmServers extends React.Component {
     });
   }
 
-
   render() {
     if(this.state.isLoading){
       return(
-        <View style={{flex: 1, padding: 20}}>
+        <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
           <ActivityIndicator/>
         </View>
       )
     }
-
-
     return(
-      <View style={{flex: 1, paddingTop:20}}>
+      <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) => <Text>{item.ip}, {item.port}</Text>}
-          keyExtractor={({id}, index) => id}
+          keyExtractor={item => item.ip}
         />
       </View>
     );

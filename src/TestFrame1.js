@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
+import { smStyles } from './SmFrameStyle';
 
 import {Rate} from './Rate';
 
 class TestFrameX extends React.Component {
   render() {
     return (
-      <h1>Text from frameX</h1>
+      <Text>Text from frameX</Text>
     )
   };
 }
@@ -15,9 +16,9 @@ class TestFrameX extends React.Component {
 class TestFrame1 extends React.Component {
   render() {
     return (
-      <View style={{flex:1}}>
+      <View style={[smStyles.topFrame,{flex:1}]}>
         <View style={{backgroundColor: 'powderblue', flex:5}}>
-          <h1>Text from frame1</h1>
+          <Text>Text from frame1</Text>
         </View>
         <View style={{backgroundColor: 'skyblue'}}>
           <TestFrameX style={{flex: 4, backgroundColor: 'powderblue'}} />

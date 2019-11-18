@@ -1,19 +1,22 @@
 // import logo from './logo.svg';
-import './Rate.css';
+import './RateStyle.js';
 
 import React from 'react';
+import { View, Text } from 'react-native';
 import ReactDOM from 'react-dom';
 
-import { FaStar } from 'react-icons/fa';
-import { FiThumbsUp, FiThumbsDown } from 'react-icons/fi';
+import { Icon } from 'react-native-elements';
 
+{/*}
+import { Star } from 'react-native-vector-icons';
+import { FiThumbsUp, FiThumbsDown } from 'react-native-vector-icons';
 
 const Star = ({ selected = false, onSelect = f => f }) => (
   selected ?
-  <FaStar color={"red"} onClick={onSelect} /> :
-  <FaStar color={"grey"} onClick={onSelect} />
+  <FaStar style={{color: 'red', onClick: onSelect}} /> :
+  <FaStar style={{color: 'gray', onClick: onSelect}} />
 );
-
+*/}
 
 const createArray = length => [...Array(length)];
 
@@ -40,25 +43,27 @@ class Rate extends React.Component {
 
   render() {
     return (
-      <div className="ratearea">
-      <p>Test-txt: {this.state.currentRate}</p>
-      <FiThumbsUp
-        className="ratemore"
+      <View>
+      <Text>T{this.state.currentRate}
+{/*}      <FiThumbsUp
         onClick={() => this.setCurrentRate(this.state.currentRate +1)}
       />
+
       {createArray(this.props.totalStars).map((n,i) => (
-        <Star
+        Per<Icon name='rowing'/>Kåre
+        */}
+        {/*}
           key={i}
           selected={this.state.currentRate > i}
           onSelect={() => this.setSelectedStars(i + 1)}
         />
       ))}
       <FiThumbsDown
-        className="rateless"
         onClick={() => this.setCurrentRate(this.state.currentRate -1)}
       />
-      <h2>Render in Rate {this.state.currentRate}</h2>
-      </div>
+      */}
+      Render in Rate {this.state.currentRate}</Text>
+      </View>
     );
   }
 }

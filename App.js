@@ -3,6 +3,8 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 
 import {TestFrame1} from './src/TestFrame1';
 import {SmServers} from './src/SmServers';
+import {SmDoorbellOut} from './src/SmDoorbellOut';
+import {SmInfo} from './src/SmInfo';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -12,10 +14,12 @@ const instructions = Platform.select({
 export default class App extends React.Component {
   render() {
     return (
-      <div>
-        <TestFrame1 />
-        <SmServers />
-      </div>
+      <View style={{flex: 1, flexDirection: 'column',height: 80}}>
+        <TestFrame1 style={{height: 80, borderWidth: 5}}/>
+        <SmServers style={{height: 80}}/>
+        <SmInfo style={{height: 80}}/>
+        <SmDoorbellOut />
+      </View>
     );
   }
 }

@@ -1,0 +1,59 @@
+import React, { Component } from 'react';
+import { FlatList, ActivityIndicator, Text, View, StyleSheet  } from 'react-native';
+import { smStyles } from './SmFrameStyle';
+
+
+class SmInfo extends React.Component {
+  constructor(props){
+    super(props);
+    this.state ={ isLoading: true}
+  }
+
+  componentDidMount() {
+    this.fetchInfo()
+    this.timer = setInterval(() => this.fetchInfo(), 10000)
+  }
+
+
+  fetchInfo() {
+    return fetch('http://10.0.1.107:5055/v1/sm/info', {
+      method: 'GET',
+      headers: {
+        Accept: '*',
+      }
+    })
+    .then((response) => {return response.json();})
+    .then((responseJson) => {
+      this.setState({
+        isLoading: false,
+        dataInfo: responseJson,
+      }, function(){
+
+      });
+    })
+    .catch((error) =>{
+      console.error(error);
+    });
+  }
+
+
+  render() {
+    if(this.state.isLoading){
+      return(
+        <View style={[smStyles.topFrame,{flex: 1}]}>
+          <ActivityIndicator/>
+        </View>
+      )
+    }
+
+    return(
+      <View style={[smStyles.topFrame,{flex: 1, height:20}]}>
+        <Text>
+          uid={this.state.dataInfo.uid}, {this.state.dataInfo.cap}.
+        </Text>
+      </View>
+    );
+  };
+}
+
+export {SmInfo};
