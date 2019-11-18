@@ -7,6 +7,7 @@ topFrame: {
   margin: 1,
   padding: 3,
   borderColor: 'sienna',
+  width: 358,
 },
 
 });
