@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 
-import {TestFrame1} from './src/TestFrame1';
-import {SmServers} from './src/SmServers';
-import {SmDoorbellOut} from './src/SmDoorbellOut';
-import {SmInfo} from './src/SmInfo';
+import {TestFrame1} from './TestFrame1';
+import {SmServers} from './SmServers';
+import {SmDoorbellOut} from './SmDoorbellOut';
+import {SmInfo} from './SmInfo';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
