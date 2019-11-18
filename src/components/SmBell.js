@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { FlatList, Text, View, StyleSheet  } from 'react-native';
 import { smStyles } from './SmFrameStyle';
-import { SmLock } from './SmLock';
-import { SmDoor } from './SmDoor';
-import { SmBell } from './SmBell';
 
-class SmDoorbellOut extends React.Component {
+class SmBell extends React.Component {
   constructor(props){
     super(props);
-    this.state ={ isLoading: true}
+    this.state ={ isLocking: true}
   }
 
   componentDidMount() {
@@ -24,14 +21,11 @@ class SmDoorbellOut extends React.Component {
   render() {
     return (
       // Try setting `flexDirection` to `column`.
-      <View style={[smStyles.topFrame, {flex: 4, flexDirection: 'column'}]}>
-        <SmLock/>
-        <SmDoor/>
-        <SmBell/>
+      <View style={{width: 50, height: 50, alignSelf: 'stretch', backgroundColor: 'steelblue'}}>
+        <Text> Bell= </Text>
       </View>
     );
-
   };
 }
 
-export {SmDoorbellOut};
+export {SmBell};
