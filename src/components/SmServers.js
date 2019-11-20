@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 import { smStyles } from './SmFrameStyle';
+
 import { connect } from 'react-redux';
 import { newIpPortPair } from '../actions';
 
-export class SmServers extends React.Component {
+class SmServers extends React.Component {
   constructor(props){
     super(props);
     this.state ={ isLoading: true, serverList: []}
   }
 
   componentDidMount() {
-    this.fetchIpAndPort()
+{/*    this.fetchIpAndPort() */}
     this.timer = setInterval(() => this.fetchIpAndPort(), 10000)
   }
 
-  handleNewIpPortPair = () => {
-    this.props.newIpPortPair(this.state.serverList)
+  handleNewIpPortPair = (serverList) => {
+    this.props.newIpPortPair(serverList)
     this.setState({serverList})
   }
 
@@ -31,7 +32,7 @@ export class SmServers extends React.Component {
     .then((responseJson) => {
 
       console.log("Before")
-      this.handleNewIpPortPair();
+      this.handleNewIpPortPair(responseJson.published_units);
       console.log("After")
 {/*      this.setState({
         isLoading: false,
@@ -64,6 +65,8 @@ export class SmServers extends React.Component {
     );
   };
 }
+
+console.log("Call connect:" + connect(null,{newIpPortPair})(SmServers))
 
 export default connect(
   null,

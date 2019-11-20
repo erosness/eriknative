@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 
 import {TestFrame1} from './components/TestFrame1';
-import {SmServers} from './components/SmServers';
+import SmServers from './components/SmServers';
 import {SmDoorbellOut} from './components/SmDoorbellOut';
 import {SmInfo} from './components/SmInfo';
 
