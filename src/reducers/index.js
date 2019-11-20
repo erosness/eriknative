@@ -1,6 +1,7 @@
+// redux/actions.js
 import { combineReducers } from 'redux'
-import servers from './servers'
+import smServersReducer from './SmServers'
 
 export default combineReducers({
-  servers,
+  smServersReducer,
 })
