@@ -4,6 +4,6 @@ export const newIpPortPair = (serverList) =>
   {
     return {
       type: NEW_IP_PORT_PAIR,
-      serverList
+      payload: serverList
     }
 };

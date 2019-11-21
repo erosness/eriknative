@@ -12,7 +12,7 @@ class SmServers extends React.Component {
   }
 
   componentDidMount() {
-{/*    this.fetchIpAndPort() */}
+    this.fetchIpAndPort()
     this.timer = setInterval(() => this.fetchIpAndPort(), 10000)
   }
 
@@ -31,15 +31,13 @@ class SmServers extends React.Component {
     .then((response) => {return response.json();})
     .then((responseJson) => {
 
-      console.log("Before")
       this.handleNewIpPortPair(responseJson.published_units);
-      console.log("After")
-{/*      this.setState({
+      this.setState({
         isLoading: false,
         dataSource: responseJson.published_units,
       }, function(){
 
-      }); */}
+      });
     })
     .catch((error) =>{
       console.error(error);
@@ -58,7 +56,7 @@ class SmServers extends React.Component {
       <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
         <FlatList
           data={this.state.dataSource}
-          renderItem={({item}) => <Text>{item.ip}, {item.port}</Text>}
+          renderItem={({item}) => <Text>IP: {item.ip}, Port: {item.port}</Text>}
           keyExtractor={item => item.ip}
         />
       </View>

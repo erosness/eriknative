@@ -1,11 +1,16 @@
 import { NEW_IP_PORT_PAIR } from '../actions/actionTypes';
 
-let initialState = { published_units: []};
+let initialState = { serverList: []};
 
-export default (state = initialState, action) => {
+export default function(state = initialState, action) {
+  console.log("Reducer-->", state)
   switch (action.type) {
     case NEW_IP_PORT_PAIR: {
-      return state;
+      const serverList = action.payload;
+      return {...state , serverList}
+{/*      console.log("Begin in reducer")
+      console.log(serverList)
+      console.log(result) */}
     }
     default: {
       return state;

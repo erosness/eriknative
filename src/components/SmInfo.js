@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View, StyleSheet  } from 'react-native';
+import { connect } from "react-redux";
+
 import { smStyles } from './SmFrameStyle';
 
 
@@ -38,6 +40,7 @@ class SmInfo extends React.Component {
 
 
   render() {
+    console.log("Render SmInfo")
     if(this.state.isLoading){
       return(
         <View style={[smStyles.topFrame,{flex: 1}]}>
@@ -56,4 +59,9 @@ class SmInfo extends React.Component {
   };
 }
 
-export {SmInfo};
+const mapStateToProps = state => {
+  const servers = state.smServersReducer || {};
+  return { servers };
+};
+
+export default connect(mapStateToProps)(SmInfo);
