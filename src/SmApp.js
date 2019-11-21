@@ -9,7 +9,6 @@ import {SmInfo} from './components/SmInfo';
 import { Provider } from 'react-redux'
 import store from './store'
 
-const rootElement = document.getElementById("root");
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
