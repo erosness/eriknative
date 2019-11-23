@@ -1,9 +1,14 @@
-import { NEW_IP_PORT_PAIR } from "./actionTypes";
+import {
+  FETCH_INFO_REQUEST,
+  FETCH_INFO_FAILURE,
+  FETCH_INFO_SUCCESS,
+} from "./actionTypes";
 
-export const newIpPortPair = (serverList) =>
+export const fetchInfoRequest = (ipPortPair) =>
   {
+    console.log("At action/index.js:9", ipPortPair)
     return {
-      type: NEW_IP_PORT_PAIR,
-      payload: serverList
+      type: FETCH_INFO_REQUEST,
+      payload: ipPortPair
     }
 };

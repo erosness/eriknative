@@ -3,7 +3,7 @@ import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 import { smStyles } from './SmFrameStyle';
 
 import { connect } from 'react-redux';
-import { newIpPortPair } from '../actions';
+import { fetchInfoRequest } from '../actions';
 
 class SmServers extends React.Component {
   constructor(props){
@@ -16,11 +16,6 @@ class SmServers extends React.Component {
     this.timer = setInterval(() => this.fetchIpAndPort(), 10000)
   }
 
-  handleNewIpPortPair = (serverList) => {
-    this.props.newIpPortPair(serverList)
-    this.setState({serverList})
-  }
-
   fetchIpAndPort() {
     return fetch('http://10.0.1.107:5055/v1/sm/zeroconf', {
       method: 'GET',
@@ -30,14 +25,12 @@ class SmServers extends React.Component {
     })
     .then((response) => {return response.json();})
     .then((responseJson) => {
-
-      this.handleNewIpPortPair(responseJson.published_units);
+      let serverList = responseJson.published_units
       this.setState({
         isLoading: false,
-        dataSource: responseJson.published_units,
-      }, function(){
-
+        serverList: serverList,
       });
+      serverList.map(elem => this.props.fetchInfoRequest(elem))
     })
     .catch((error) =>{
       console.error(error);
@@ -55,7 +48,7 @@ class SmServers extends React.Component {
     return(
       <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
         <FlatList
-          data={this.state.dataSource}
+          data={this.state.serverList}
           renderItem={({item}) => <Text>IP: {item.ip}, Port: {item.port}</Text>}
           keyExtractor={item => item.ip}
         />
@@ -64,9 +57,7 @@ class SmServers extends React.Component {
   };
 }
 
-console.log("Call connect:" + connect(null,{newIpPortPair})(SmServers))
-
 export default connect(
   null,
-  { newIpPortPair },
+  { fetchInfoRequest },
 )(SmServers);
