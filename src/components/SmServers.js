@@ -3,7 +3,7 @@ import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 import { smStyles } from './SmFrameStyle';
 
 import { connect } from 'react-redux';
-import { newIpPortPair } from '../actions';
+import { fetchInfoRequest } from '../actions';
 
 class SmServers extends React.Component {
   constructor(props){
@@ -12,13 +12,8 @@ class SmServers extends React.Component {
   }
 
   componentDidMount() {
-{/*    this.fetchIpAndPort() */}
+    this.fetchIpAndPort()
     this.timer = setInterval(() => this.fetchIpAndPort(), 10000)
-  }
-
-  handleNewIpPortPair = (serverList) => {
-    this.props.newIpPortPair(serverList)
-    this.setState({serverList})
   }
 
   fetchIpAndPort() {
@@ -30,16 +25,12 @@ class SmServers extends React.Component {
     })
     .then((response) => {return response.json();})
     .then((responseJson) => {
-
-      console.log("Before")
-      this.handleNewIpPortPair(responseJson.published_units);
-      console.log("After")
-{/*      this.setState({
+      let serverList = responseJson.published_units
+      this.setState({
         isLoading: false,
-        dataSource: responseJson.published_units,
-      }, function(){
-
-      }); */}
+        serverList: serverList,
+      });
+      serverList.map(elem => this.props.fetchInfoRequest(elem))
     })
     .catch((error) =>{
       console.error(error);
@@ -57,8 +48,8 @@ class SmServers extends React.Component {
     return(
       <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
         <FlatList
-          data={this.state.dataSource}
-          renderItem={({item}) => <Text>{item.ip}, {item.port}</Text>}
+          data={this.state.serverList}
+          renderItem={({item}) => <Text>IP: {item.ip}, Port: {item.port}</Text>}
           keyExtractor={item => item.ip}
         />
       </View>
@@ -66,9 +57,7 @@ class SmServers extends React.Component {
   };
 }
 
-console.log("Call connect:" + connect(null,{newIpPortPair})(SmServers))
-
 export default connect(
   null,
-  { newIpPortPair },
+  { fetchInfoRequest },
 )(SmServers);

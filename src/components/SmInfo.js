@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View, StyleSheet  } from 'react-native';
+import { connect } from "react-redux";
+
 import { smStyles } from './SmFrameStyle';
 
 
@@ -10,8 +12,8 @@ class SmInfo extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchInfo()
-    this.timer = setInterval(() => this.fetchInfo(), 10000)
+{/*    this.fetchInfo()
+    this.timer = setInterval(() => this.fetchInfo(), 10000) */}
   }
 
 
@@ -24,11 +26,10 @@ class SmInfo extends React.Component {
     })
     .then((response) => {return response.json();})
     .then((responseJson) => {
+      console.log("SmInfo, JSON=", responseJson)
       this.setState({
         isLoading: false,
-        dataInfo: responseJson,
-      }, function(){
-
+        dataInfo: {...responseJson},
       });
     })
     .catch((error) =>{
@@ -38,6 +39,7 @@ class SmInfo extends React.Component {
 
 
   render() {
+    console.log("Render SmInfo")
     if(this.state.isLoading){
       return(
         <View style={[smStyles.topFrame,{flex: 1}]}>
@@ -56,4 +58,10 @@ class SmInfo extends React.Component {
   };
 }
 
-export {SmInfo};
+const mapStateToProps = state => {
+  console.log("SmInfo mapStateToProps:",  state.smServersReducer.smServer)
+  const server = state.smServersReducer.smServer || {};
+  return  server;
+};
+
+export default connect(mapStateToProps)(SmInfo);

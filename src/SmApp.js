@@ -4,7 +4,7 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 import {TestFrame1} from './components/TestFrame1';
 import SmServers from './components/SmServers';
 import {SmDoorbellOut} from './components/SmDoorbellOut';
-import {SmInfo} from './components/SmInfo';
+import SmInfo from './components/SmInfo';
 
 import { Provider } from 'react-redux'
 import store from './store'
