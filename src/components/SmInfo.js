@@ -12,8 +12,8 @@ class SmInfo extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchInfo()
-    this.timer = setInterval(() => this.fetchInfo(), 10000)
+{/*    this.fetchInfo()
+    this.timer = setInterval(() => this.fetchInfo(), 10000) */}
   }
 
 
@@ -26,11 +26,10 @@ class SmInfo extends React.Component {
     })
     .then((response) => {return response.json();})
     .then((responseJson) => {
+      console.log("SmInfo, JSON=", responseJson)
       this.setState({
         isLoading: false,
-        dataInfo: responseJson,
-      }, function(){
-
+        dataInfo: {...responseJson},
       });
     })
     .catch((error) =>{
@@ -60,8 +59,9 @@ class SmInfo extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const servers = state.smServersReducer || {};
-  return { servers };
+  console.log("SmInfo mapStateToProps:",  state.smServersReducer.smServer)
+  const server = state.smServersReducer.smServer || {};
+  return  server;
 };
 
 export default connect(mapStateToProps)(SmInfo);
