@@ -13,3 +13,20 @@ export const fetchInfoRequest = (ipPortPair) =>
     }
   }
 };
+
+function fetchInfo(server) {
+  return function(dispatch) {
+{/*    dispatch(requestPosts(subreddit)) */}
+    console.log("Req=", server)
+    let request = ("http://", server.ip, ":", server.port, "/v1/sm/info")
+    return fetch("http://", server.ip, ":", server.port, "/v1/sm/info")
+      .then(
+        response => response.json(),
+        error => console.log('An error occurred.', error)
+      )
+      .then(json => {
+        console.log("Response:", json)
+        dispatch(receivePosts(server, json))
+      })
+  }
+}
