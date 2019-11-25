@@ -59,8 +59,8 @@ class SmInfo extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("SmInfo mapStateToProps:",  state.smServersReducer.smServer)
-  const server = state.smServersReducer.smServer || {};
+  console.log("SmInfo mapStateToProps:",  state.smServersReducer)
+  const server = state.smServersReducer || {};
   return  server;
 };
 

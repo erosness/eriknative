@@ -6,14 +6,8 @@ import {
 } from "./actionTypes";
 
 export const getInfo = (ipPortPair) =>
-  {
-    console.log("At action getInfo:", ipPortPair)
-    return {
-      type: GET_INFO,
-      payload: {
-      smServer: ipPortPair
-    }
-  }
+{
+  return fetchInfo(ipPortPair)
 };
 
 export const fetchInfoRequest = (ipPortPair) =>
@@ -36,29 +30,27 @@ export const fetchInfoFailure = (ipPortPair) =>
   }
 };
 
-export const fetchInfoSuccess = (ipPortPair) =>
+export const fetchInfoSuccess = (server,data) =>
   {
     return {
       type: FETCH_INFO_SUCCESS,
       payload: {
-        smServer: ipPortPair
+        smServer: server,
+        info: data
     }
   }
 };
 
-function fetchInfo(server) {
+function fetchInfo(ipPortPair) {
   return function(dispatch) {
-    dispatch(requestPosts(subreddit))
-    console.log("Req=", server)
-    let request = ("http://", server.ip, ":", server.port, "/v1/sm/info")
-    return fetch("http://", server.ip, ":", server.port, "/v1/sm/info")
+    dispatch(fetchInfoRequest(ipPortPair))
+    return fetch("http://" + ipPortPair.ip + ":" + ipPortPair.port + "/v1/sm/info")
       .then(
         response => response.json(),
         error => console.log('An error occurred.', error)
       )
       .then(json => {
-        console.log("Response:", json)
-        dispatch(receivePosts(server, json))
+        dispatch(fetchInfoSuccess(ipPortPair, json))
       })
   }
 }
