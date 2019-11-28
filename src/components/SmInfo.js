@@ -11,57 +11,26 @@ class SmInfo extends React.Component {
     this.state ={ isLoading: true}
   }
 
-  componentDidMount() {
-{/*    this.fetchInfo()
-    this.timer = setInterval(() => this.fetchInfo(), 10000) */}
-  }
-
-
-  fetchInfo() {
-    return fetch('http://10.0.1.107:5055/v1/sm/info', {
-      method: 'GET',
-      headers: {
-        Accept: '*',
-      }
-    })
-    .then((response) => {return response.json();})
-    .then((responseJson) => {
-      console.log("SmInfo, JSON=", responseJson)
-      this.setState({
-        isLoading: false,
-        dataInfo: {...responseJson},
-      });
-    })
-    .catch((error) =>{
-      console.error(error);
-    });
-  }
-
-
   render() {
-    console.log("Render SmInfo")
-    if(this.state.isLoading){
-      return(
-        <View style={[smStyles.topFrame,{flex: 1}]}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-
+    const objkeys = Object.keys(this.props.unitList.unitList)
+    const objvals = Object.values(this.props.unitList.unitList)
     return(
       <View style={[smStyles.topFrame,{flex: 1, height:20}]}>
-        <Text>
-          uid={this.state.dataInfo.uid}, {this.state.dataInfo.cap}.
-        </Text>
+        <FlatList
+          data={objvals}
+          renderItem={({ item }) =>
+          <Text>
+            Unit {item.name} at {item.ip}:{item.port} has uid {item.uid}
+           </Text>}
+          keyExtractor={item => item.uid}
+        />
       </View>
     );
   };
 }
 
 const mapStateToProps = state => {
-  console.log("SmInfo mapStateToProps:",  state.smServersReducer)
-  const server = state.smServersReducer || {};
-  return  server;
+  return { unitList: state.smServersReducer };
 };
 
 export default connect(mapStateToProps)(SmInfo);
