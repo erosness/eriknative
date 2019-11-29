@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, Text, View, StyleSheet  } from 'react-native';
 import { smStyles } from '../styles/SmFrameStyle';
-import { SmLock } from './SmLock';
-import { SmDoor } from './SmDoor';
-import { SmBell } from './SmBell';
+import ShowDoorbellOut from '../components/ShowDoorbellOut';
 
 class SmDoorbellOut extends React.Component {
   constructor(props){
@@ -11,23 +9,11 @@ class SmDoorbellOut extends React.Component {
     this.state ={ isLoading: true}
   }
 
-  componentDidMount() {
-    this.timer = setInterval(() => this.fetchInfo(), 5000)
-  }
-
-  fetchInfo() {
-    this.setState({
-      isLoading: true,
-    })
-  }
-
   render() {
     return (
       // Try setting `flexDirection` to `column`.
       <View style={[smStyles.topFrame, {flex: 4, flexDirection: 'column'}]}>
-        <SmLock/>
-        <SmDoor/>
-        <SmBell/>
+        <ShowDoorbellOut/>
       </View>
     );
 

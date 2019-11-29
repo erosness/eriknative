@@ -44,31 +44,6 @@ class SmServers extends React.Component {
           serverList={this.state.serverList}
           isLoading={this.state.isLoading} />
     )
-  }
-
-  xrender() {
-    if(this.state.isLoading){
-      return(
-        <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-    return(
-      <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
-      <Text style={{textAlign: 'center',
-                    fontSize: 18,
-                    backgroundColor: 'lightsteelblue'}} >
-                    Announced servers
-      </Text>
-
-        <FlatList
-          data={this.state.serverList}
-          renderItem={({item}) => <Text>IP: {item.ip}, Port: {item.port}</Text>}
-          keyExtractor={item => item.ip}
-        />
-      </View>
-    );
   };
 }
 

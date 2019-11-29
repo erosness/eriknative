@@ -5,8 +5,7 @@ import { Provider } from 'react-redux'
 import {RootFrame} from './components/RootFrame';
 import SmServers from './containers/SmServers';
 import SmInfo from './containers/SmInfo';
-
-import {SmDoorbellOut} from './components/SmDoorbellOut';
+import SmFunctions from './containers/SmFunctions';
 
 import store from './store'
 
@@ -27,7 +26,7 @@ export default class SmApp extends React.Component {
           <RootFrame style={{height: 50, borderWidth: 5}}/>
           <SmServers style={{height: 80}}/>
           <SmInfo style={{height: 80}}/>
-          <SmDoorbellOut />
+          <SmFunctions />
         </View>
       </Provider >
     );
