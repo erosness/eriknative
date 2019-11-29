@@ -12,16 +12,26 @@ class SmInfo extends React.Component {
   }
 
   render() {
-    const objkeys = Object.keys(this.props.unitList.unitList)
     const objvals = Object.values(this.props.unitList.unitList)
     return(
-      <View style={[smStyles.topFrame,{flex: 1, height:20}]}>
+      <View style={[smStyles.topFrame,{height:220}]}>
+        <Text style={{textAlign: 'center',
+                      fontSize: 18,
+                      backgroundColor: 'lightsteelblue'}} >
+                      Units available
+        </Text>
         <FlatList
           data={objvals}
           renderItem={({ item }) =>
-          <Text>
-            Unit {item.name} at {item.ip}:{item.port} has uid {item.uid}
-           </Text>}
+          <View>
+            <Text style={{backgroundColor: 'lightcoral',
+                           fontSize: 18}}>
+              {item.name} {'\n'}
+             </Text>
+             <Text style={{backgroundColor: 'linen'}}>
+               ip:{item.ip} port: {item.port} mac:{item.uid}
+              </Text>
+            </View>}
           keyExtractor={item => item.uid}
         />
       </View>

@@ -7,13 +7,11 @@ class RootFrame extends React.Component {
     return (
       <View style={[smStyles.topFrame]}>
         <Text style={{textAlign: 'center',
-                      padding: 5,
                       fontSize: 24,
                       backgroundColor: 'lightsteelblue'}} >
                       SmartMonitor
         </Text>
-        <Text style={{backgroundColor: 'powderblue',
-                      padding: 5,}}>
+        <Text style={{backgroundColor: 'powderblue'}}>
                       The SmartMonitor is a smart monitoring and
                       contol setup for seamless integration and
                       operation.

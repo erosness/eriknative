@@ -47,6 +47,12 @@ class SmServers extends React.Component {
     }
     return(
       <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
+      <Text style={{textAlign: 'center',
+                    fontSize: 18,
+                    backgroundColor: 'lightsteelblue'}} >
+                    Announced servers
+      </Text>
+
         <FlatList
           data={this.state.serverList}
           renderItem={({item}) => <Text>IP: {item.ip}, Port: {item.port}</Text>}
