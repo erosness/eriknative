@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
-import { smStyles } from './SmFrameStyle';
+import { smStyles } from '../styles/SmFrameStyle';
 
 class RootFrame extends React.Component {
   render() {

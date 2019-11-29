@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, Text, View, StyleSheet  } from 'react-native';
-import { smStyles } from './SmFrameStyle';
+import { smStyles } from '../styles/SmFrameStyle';
 import { SmLock } from './SmLock';
 import { SmDoor } from './SmDoor';
 import { SmBell } from './SmBell';

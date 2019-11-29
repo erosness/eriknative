@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
-import { smStyles } from './SmFrameStyle';
+import { smStyles } from '../styles/SmFrameStyle';
 
 import { connect } from 'react-redux';
 import { getInfo } from '../actions';
