@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ShowUnits from '../components/ShowUnits'
-import { FlatList, ActivityIndicator, Text, View, StyleSheet  } from 'react-native';
 import { connect } from "react-redux";
 
 import { smStyles } from '../styles/SmFrameStyle';
@@ -14,9 +13,7 @@ class SmInfo extends React.Component {
 
   render() {
     return (
-      <View>
       <ShowUnits unitList={this.props.unitList} />
-      </View>
     );
   };
 }
