@@ -3,7 +3,7 @@ import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 import { smStyles } from './SmFrameStyle';
 
 import { connect } from 'react-redux';
-import { fetchInfoRequest } from '../actions';
+import { getInfo } from '../actions';
 
 class SmServers extends React.Component {
   constructor(props){
@@ -30,7 +30,7 @@ class SmServers extends React.Component {
         isLoading: false,
         serverList: serverList,
       });
-      serverList.map(elem => this.props.fetchInfoRequest(elem))
+      serverList.map(elem => this.props.getInfo(elem))
     })
     .catch((error) =>{
       console.error(error);
@@ -59,5 +59,5 @@ class SmServers extends React.Component {
 
 export default connect(
   null,
-  { fetchInfoRequest },
+  { getInfo },
 )(SmServers);
