@@ -1,12 +1,13 @@
 import React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux'
 
 import {RootFrame} from './components/RootFrame';
-import SmServers from './components/SmServers';
-import {SmDoorbellOut} from './components/SmDoorbellOut';
+import SmServers from './containers/SmServers';
 import SmInfo from './containers/SmInfo';
 
-import { Provider } from 'react-redux'
+import {SmDoorbellOut} from './components/SmDoorbellOut';
+
 import store from './store'
 
 
