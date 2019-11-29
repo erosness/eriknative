@@ -20,8 +20,11 @@ render() {
         <View>
           <Text style={{backgroundColor: 'lightcoral',
                          fontSize: 18}}>
-            {item.name} {'\n'}
-           </Text>
+            {item.name}
+            </Text>
+            <Text style={{backgroundColor: 'lightblue',fontSize: 14}}>
+              {item.cap.map( c => c + "\n" )}
+            </Text>
            <Text style={{backgroundColor: 'linen'}}>
              ip:{item.ip} port: {item.port} mac:{item.uid}
             </Text>
