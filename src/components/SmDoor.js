@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, Text, View, StyleSheet  } from 'react-native';
-import { smStyles } from './SmFrameStyle';
+import { smStyles } from '../styles/SmFrameStyle';
 
 class SmDoor extends React.Component {
   constructor(props){

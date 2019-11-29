@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
-import { smStyles } from './SmFrameStyle';
+import { smStyles } from '../styles/SmFrameStyle';
+import ShowServers from '../components/ShowServers';
 
 import { connect } from 'react-redux';
 import { getInfo } from '../actions';
@@ -8,7 +9,7 @@ import { getInfo } from '../actions';
 class SmServers extends React.Component {
   constructor(props){
     super(props);
-    this.state ={ isLoading: true, serverList: []}
+    this.state ={ isLoading: true, serverList: {}}
   }
 
   componentDidMount() {
@@ -38,6 +39,14 @@ class SmServers extends React.Component {
   }
 
   render() {
+    return (
+        <ShowServers
+          serverList={this.state.serverList}
+          isLoading={this.state.isLoading} />
+    )
+  }
+
+  xrender() {
     if(this.state.isLoading){
       return(
         <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
@@ -47,6 +56,12 @@ class SmServers extends React.Component {
     }
     return(
       <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
+      <Text style={{textAlign: 'center',
+                    fontSize: 18,
+                    backgroundColor: 'lightsteelblue'}} >
+                    Announced servers
+      </Text>
+
         <FlatList
           data={this.state.serverList}
           renderItem={({item}) => <Text>IP: {item.ip}, Port: {item.port}</Text>}

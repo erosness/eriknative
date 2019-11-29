@@ -1,12 +1,13 @@
 import React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-
-import {TestFrame1} from './components/TestFrame1';
-import SmServers from './components/SmServers';
-import {SmDoorbellOut} from './components/SmDoorbellOut';
-import SmInfo from './components/SmInfo';
-
 import { Provider } from 'react-redux'
+
+import {RootFrame} from './components/RootFrame';
+import SmServers from './containers/SmServers';
+import SmInfo from './containers/SmInfo';
+
+import {SmDoorbellOut} from './components/SmDoorbellOut';
+
 import store from './store'
 
 
@@ -23,7 +24,7 @@ export default class SmApp extends React.Component {
       <Provider store={store}>
         <View style={{flex: 1, flexDirection: 'column',height: 80}}>
           <Text>{instructions}</Text>
-          <TestFrame1 style={{height: 80, borderWidth: 5}}/>
+          <RootFrame style={{height: 50, borderWidth: 5}}/>
           <SmServers style={{height: 80}}/>
           <SmInfo style={{height: 80}}/>
           <SmDoorbellOut />
