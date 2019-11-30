@@ -7,6 +7,7 @@ export default class ShowUnits extends Component {
 
 render() {
   const objvals = Object.values(this.props.unitList.unitList)
+  console.log("Render units:", objvals)
   return(
     <View style={[smStyles.topFrame,{height:220}]}>
       <Text style={{textAlign: 'center',
@@ -23,7 +24,7 @@ render() {
             {item.name}
             </Text>
             <Text style={{backgroundColor: 'lightblue',fontSize: 14}}>
-              {item.cap.map( c => c + "\n" )}
+              {item.cap.map( c => c.cap + "\n" )}
             </Text>
            <Text style={{backgroundColor: 'linen'}}>
              ip:{item.ip} port: {item.port} mac:{item.uid}
