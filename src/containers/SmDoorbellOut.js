@@ -16,7 +16,6 @@ class SmDoorbellOut extends React.Component {
         <ShowDoorbellOut/>
       </View>
     );
-
   };
 }
 
