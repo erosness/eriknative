@@ -13,14 +13,40 @@ class SmFunctions extends React.Component {
   }
 
   render() {
+    const entry = Object.keys(this.props.functionList)
+    if(entry.length == 0) {
+      console.log("No keys")
+      return ("No functions ")
+    }
+    const f = entry.map( key => {
+      const elem = this.props.functionList[key]
+      switch (elem.cap) {
+        case "doorbell-out": {
+            return (<SmDoorbellOut
+              name={elem.name}
+              cap = {elem.cap}
+               />)
+        }
+        default: {
+          return (
+            <Text>No element</Text>
+            )
+        }
+      }
+    });
+    console.log("xxxx", f)
+
     return (
-      <SmDoorbellOut />
+      <View style={{flex:1}}>
+      {f}
+      </View>
     );
   };
 }
 
 const mapStateToProps = state => {
-  return { functionList: state.smInfoReducer };
+  console.log("At map for SmFunctions:", state)
+  return { functionList: state.smFunctionsReducer.functionList };
 };
 
 export default connect(mapStateToProps)(SmFunctions);
