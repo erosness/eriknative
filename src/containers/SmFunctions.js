@@ -20,7 +20,7 @@ class SmFunctions extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { unitList: state.smServersReducer };
+  return { functionList: state.smInfoReducer };
 };
 
 export default connect(mapStateToProps)(SmFunctions);
