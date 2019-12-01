@@ -6,7 +6,7 @@ import { smStyles } from '../styles/SmFrameStyle';
 export default class ShowUnits extends Component {
 
 render() {
-  const objvals = Object.values(this.props.unitList.unitList)
+  const objvals = Object.values(this.props.unitList)
   console.log("Render units:", objvals)
   return(
     <View style={[smStyles.topFrame,{height:220}]}>
