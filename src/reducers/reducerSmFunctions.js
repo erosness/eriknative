@@ -25,11 +25,12 @@ export default function(state = initialState, action) {
       let localFuncs = Object.assign({}, state.functionList);
       action.payload.info.cap.forEach( e => {
         const func = {
-          fid : e.fid,
-          cap : e.cap,
-          name : action.payload.info.name,
+          fid    : e.fid,
+          cap    : e.cap,
+          uid    : action.payload.info.uid,
+          name   : action.payload.info.name,
           status : {},
-          local : {},
+          local  : {},
         }
         localFuncs[e.fid]= func
       })
