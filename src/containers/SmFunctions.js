@@ -58,7 +58,7 @@ class SmFunctions extends React.Component {
 
 const mapStateToProps = state => {
   console.log("At map for SmFunctions:", state)
-  return { functionList: state.smFunctionsReducer.functionList };
+  return { functionList: state.functionList };
 };
 
 export default connect(mapStateToProps)(SmFunctions);

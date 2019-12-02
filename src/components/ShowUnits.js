@@ -7,7 +7,6 @@ export default class ShowUnits extends Component {
 
 render() {
   const objvals = Object.values(this.props.unitList)
-  console.log("Render units:", objvals)
   return(
     <View style={[smStyles.topFrame,{height:220}]}>
       <Text style={{textAlign: 'center',

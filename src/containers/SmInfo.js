@@ -13,13 +13,13 @@ class SmInfo extends React.Component {
 
   render() {
     return (
-      <ShowUnits unitList={this.props.unitList} />
+      <ShowUnits unitList={this.props.state.unitList} />
     );
   };
 }
 
 const mapStateToProps = state => {
-  return { unitList: state.smInfoReducer.unitList };
+  return { state };
 };
 
 export default connect(mapStateToProps)(SmInfo);

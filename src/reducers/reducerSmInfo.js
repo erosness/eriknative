@@ -4,7 +4,7 @@ import {
   FETCH_INFO_SUCCESS,
 } from "../actions/actionTypes";
 
-let initialState = { unitList: {}, functionList: {}};
+let initialState = {};
 
 const shallowCustomCompareUnits = (a, b) => {
   return (a.uid == b.uid && a.name == b.name && a.ip == b.ip && a.port == b.port)
@@ -31,7 +31,7 @@ export default function(state = initialState, action) {
         time: Date.now(),
       }
       const localUnits = Object.assign({}, state.unitList, {[unit.uid]: unit });
-      return Object.assign({}, state, { unitList : localUnits })
+      return Object.assign({}, state, localUnits)
     }
     default: {
       return state;
