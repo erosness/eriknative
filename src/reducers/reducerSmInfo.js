@@ -30,7 +30,7 @@ export default function(state = initialState, action) {
         cap:  action.payload.info.cap,
         time: Date.now(),
       }
-      const localUnits = Object.assign( state.unitList, {[unit.uid]: unit });
+      const localUnits = Object.assign({}, state.unitList, {[unit.uid]: unit });
       return Object.assign({}, state, { unitList : localUnits })
     }
     default: {
