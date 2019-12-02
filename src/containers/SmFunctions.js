@@ -16,25 +16,27 @@ class SmFunctions extends React.Component {
     const entry = Object.keys(this.props.functionList)
     if(entry.length == 0) {
       console.log("No keys")
-      return ("No functions ")
+      return (
+      <Text> No functions </Text>
+      )
     }
     const f = entry.map( key => {
       const elem = this.props.functionList[key]
       switch (elem.cap) {
         case "doorbell-out": {
-            return (<SmDoorbellOut
+            return (
+              <SmDoorbellOut
               name={elem.name}
-              cap = {elem.cap}
-               />)
+              cap = {elem.cap} />
+           )
         }
         default: {
           return (
             <Text>No element</Text>
-            )
+          )
         }
       }
     });
-    console.log("xxxx", f)
 
     return (
       <View style={{flex:1}}>
