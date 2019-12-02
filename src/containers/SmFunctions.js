@@ -14,7 +14,6 @@ class SmFunctions extends React.Component {
   }
 
   render() {
-    console.log("SmFunctions render:", this.props)
     const entry = Object.keys(this.props.functionList)
     if(entry.length == 0) {
       console.log("No keys")
@@ -52,7 +51,6 @@ class SmFunctions extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("At map for SmFunctions:", state)
   return {functionList: state.functionList};
 };
 
