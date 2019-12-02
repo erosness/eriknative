@@ -22,9 +22,7 @@ class DbgDoorbellOut extends React.Component {
     return (
       // Try setting `flexDirection` to `column`.
       <View style={[smStyles.topFrame, {flexDirection: 'column'}]}>
-        <ShowDbgDoorbellOut
-          cap={this.props.cap}
-          name={this.props.name}/>
+        <ShowDbgDoorbellOut elem={this.props.elem}/>
       </View>
     );
   };

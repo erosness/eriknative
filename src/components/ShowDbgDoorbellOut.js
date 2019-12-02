@@ -16,7 +16,7 @@ export default class ShowDbgDoorbellOut extends Component {
       <Text style={{textAlign: 'center',
                     fontSize: 18,
                     backgroundColor: 'lightsteelblue'}} >
-                    Debug {this.props.cap} at {this.props.name}
+                    Debug {this.props.elem.cap} at {this.props.elem.name}
       </Text>
     );
   }

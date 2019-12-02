@@ -30,13 +30,8 @@ class SmFunctions extends React.Component {
         case "doorbell-out": {
             return (
               <>
-              <SmDoorbellOut
-              name={elem.name}
-              cap = {elem.cap} />
-              <DbgDoorbellOut
-              elem = {elem}
-              name={elem.name}
-              cap = {elem.cap} />
+              <SmDoorbellOut elem = {elem} />
+              <DbgDoorbellOut elem = {elem} />
               </>
            )
         }

@@ -16,7 +16,7 @@ export default class ShowDoorbellOut extends Component {
       <Text style={{textAlign: 'center',
                     fontSize: 18,
                     backgroundColor: 'lightsteelblue'}} >
-                    Function {this.props.cap} at {this.props.name}
+                    Function {this.props.elem.cap} at {this.props.elem.name}
       </Text>
     );
   }
