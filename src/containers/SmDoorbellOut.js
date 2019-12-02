@@ -13,7 +13,7 @@ class SmDoorbellOut extends React.Component {
 
     return (
       // Try setting `flexDirection` to `column`.
-      <View style={[smStyles.topFrame, {flex: 4, flexDirection: 'column'}]}>
+      <View style={[smStyles.topFrame, {flexDirection: 'column'}]}>
         <ShowDoorbellOut
           cap={this.props.cap}
           name={this.props.name}/>

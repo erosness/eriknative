@@ -7,7 +7,7 @@ export default class ShowDoorbellOut extends Component {
   render() {
     if(this.props.isLoading){
       return(
-        <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
+        <View style={[smStyles.topFrame,{height: 80}]}>
           <ActivityIndicator/>
         </View>
       )
@@ -16,7 +16,7 @@ export default class ShowDoorbellOut extends Component {
       <Text style={{textAlign: 'center',
                     fontSize: 18,
                     backgroundColor: 'lightsteelblue'}} >
-                    Function {this.props.cap} at {this.props.name} 
+                    Function {this.props.cap} at {this.props.name}
       </Text>
     );
   }

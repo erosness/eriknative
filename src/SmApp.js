@@ -21,11 +21,11 @@ export default class SmApp extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <View style={{flex: 1, flexDirection: 'column',height: 80}}>
+        <View style={{flex: 0, flexGrow: 1, flexDirection: 'column'}}>
           <Text>{instructions}</Text>
-          <RootFrame style={{height: 50, borderWidth: 5}}/>
-          <SmServers style={{height: 80}}/>
-          <SmInfo style={{height: 80}}/>
+          <RootFrame />
+          <SmServers />
+          <SmInfo />
           <SmFunctions />
         </View>
       </Provider >

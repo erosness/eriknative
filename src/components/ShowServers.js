@@ -7,18 +7,18 @@ export default class ShowServers extends Component {
   render() {
       if(this.props.isLoading){
         return(
-          <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
+          <View style={[smStyles.topFrame,{flex: 0}]}>
             <ActivityIndicator/>
           </View>
         )
       }
       return(
-        <View style={[smStyles.topFrame,{flex: 1, height: 80}]}>
-        <Text style={{textAlign: 'center',
-                      fontSize: 18,
-                      backgroundColor: 'lightsteelblue'}} >
-                      Announced servers
-        </Text>
+        <View style={[smStyles.topFrame]}>
+          <Text style={{textAlign: 'center',
+                        fontSize: 18,
+                        backgroundColor: 'lightsteelblue'}} >
+                        Announced servers
+          </Text>
 
           <FlatList
             data={this.props.serverList}
