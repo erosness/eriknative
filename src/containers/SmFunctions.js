@@ -3,7 +3,7 @@ import { FlatList, ActivityIndicator, Text, View, StyleSheet  } from 'react-nati
 import { connect } from "react-redux";
 
 import { SmDoorbellOut } from './SmDoorbellOut'
-import { DbgDoorbellOut } from './DbgDoorbellOut'
+import DbgDoorbellOut from './DbgDoorbellOut'
 import { smStyles } from '../styles/SmFrameStyle';
 
 
@@ -18,7 +18,9 @@ class SmFunctions extends React.Component {
     if(entry.length == 0) {
       console.log("No keys")
       return (
-      <Text> No functions </Text>
+      <View style={[smStyles.topFrame]}>
+        <Text> No functions </Text>
+      </View>
       )
     }
     const f = entry.map( key => {
@@ -38,7 +40,9 @@ class SmFunctions extends React.Component {
         }
         default: {
           return (
-            <Text>No element</Text>
+            <View style={[smStyles.topFrame]}>
+              <Text style={{fontSize: 9}}>No element</Text>
+            </View>
           )
         }
       }
