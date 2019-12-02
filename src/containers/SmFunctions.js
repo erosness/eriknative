@@ -37,9 +37,7 @@ class SmFunctions extends React.Component {
         }
         default: {
           return (
-            <View style={[smStyles.topFrame]}>
-              <Text style={{fontSize: 9}}>No element</Text>
-            </View>
+            <></>
           )
         }
       }
