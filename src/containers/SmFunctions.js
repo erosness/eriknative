@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View, StyleSheet  } from 'react-native';
 import { connect } from "react-redux";
 
-import { SmDoorbellOut } from './SmDoorbellOut'
+import SmDoorbellOut from './SmDoorbellOut'
 import DbgDoorbellOut from './DbgDoorbellOut'
 import { smStyles } from '../styles/SmFrameStyle';
 
@@ -14,6 +14,7 @@ class SmFunctions extends React.Component {
   }
 
   render() {
+    console.log("SmFunctions render:", this.props)
     const entry = Object.keys(this.props.functionList)
     if(entry.length == 0) {
       console.log("No keys")
@@ -33,6 +34,7 @@ class SmFunctions extends React.Component {
               name={elem.name}
               cap = {elem.cap} />
               <DbgDoorbellOut
+              elem = {elem}
               name={elem.name}
               cap = {elem.cap} />
               </>
@@ -58,7 +60,7 @@ class SmFunctions extends React.Component {
 
 const mapStateToProps = state => {
   console.log("At map for SmFunctions:", state)
-  return { functionList: state.functionList };
+  return {functionList: state.functionList};
 };
 
 export default connect(mapStateToProps)(SmFunctions);

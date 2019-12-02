@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 import { smStyles } from '../styles/SmFrameStyle';
 
-export default class ShowDoorbellOut extends Component {
+export default class ShowDbgDoorbellOut extends Component {
 
   render() {
     if(this.props.isLoading){
