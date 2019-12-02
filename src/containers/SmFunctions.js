@@ -3,6 +3,7 @@ import { FlatList, ActivityIndicator, Text, View, StyleSheet  } from 'react-nati
 import { connect } from "react-redux";
 
 import { SmDoorbellOut } from './SmDoorbellOut'
+import { DbgDoorbellOut } from './DbgDoorbellOut'
 import { smStyles } from '../styles/SmFrameStyle';
 
 
@@ -25,9 +26,14 @@ class SmFunctions extends React.Component {
       switch (elem.cap) {
         case "doorbell-out": {
             return (
+              <>
               <SmDoorbellOut
               name={elem.name}
               cap = {elem.cap} />
+              <DbgDoorbellOut
+              name={elem.name}
+              cap = {elem.cap} />
+              </>
            )
         }
         default: {
