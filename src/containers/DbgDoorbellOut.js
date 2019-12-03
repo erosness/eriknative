@@ -6,16 +6,17 @@ import { connect } from 'react-redux';
 
 import { getDoorbellOut } from '../actions';
 
-const unit = {ip: "10.0.1.107", port: 5055}
-
 class DbgDoorbellOut extends React.Component {
   constructor(props){
     super(props);
   }
 
   componentDidMount() {
-    this.props.getDoorbellOut(unit)
-    this.timer = setInterval(() => this.props.getDoorbellOut(unit), 10000)
+    this.timer = setInterval(() => {
+      const unit = this.props.unitList[this.props.elem.uid]
+      console.log("Mount:",unit)
+      this.props.getDoorbellOut(unit)
+    }, 10000)
   }
 
   render() {
@@ -28,7 +29,12 @@ class DbgDoorbellOut extends React.Component {
   };
 }
 
+const mapStateToProps = state => {
+  return {unitList: state.unitList};
+};
+
+
 export default connect(
-  null,
+  mapStateToProps,
   { getDoorbellOut },
 )(DbgDoorbellOut);
