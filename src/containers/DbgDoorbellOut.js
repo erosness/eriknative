@@ -14,7 +14,6 @@ class DbgDoorbellOut extends React.Component {
   componentDidMount() {
     this.timer = setInterval(() => {
       const unit = this.props.unitList[this.props.elem.uid]
-      console.log("Mount:",unit)
       this.props.getDoorbellOut(unit)
     }, 10000)
   }

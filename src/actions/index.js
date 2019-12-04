@@ -49,18 +49,26 @@ function fetchInfo(ipPortPair) {
     dispatch(fetchInfoRequest(ipPortPair))
     return fetch("http://" + ipPortPair.ip + ":" + ipPortPair.port + "/v1/sm/info")
       .then(
-        response => response.json(),
+        response => {
+          if(response.ok ){
+            return response.json()
+          }else{
+            return Promise.reject("Feil i fetchInfo")
+          }
+        },
         error => console.log('An error occurred.', error)
       )
       .then(json => {
-        dispatch(fetchInfoSuccess(ipPortPair, json))
+        if(typeof json !== 'undefined') {
+          return dispatch(fetchInfoSuccess(ipPortPair, json))
+        }
       })
+      .catch()
   }
 }
 
 export const getDoorbellOut = (unit) =>
 {
-  console.log("Action getDoorbellOut:", unit)
   return fetchDoorbellOut(unit)
 };
 
@@ -86,7 +94,6 @@ export const fetchDoorbellOutFailure = (unit) =>
 
 export const fetchDoorbellOutSuccess = (unit,data) =>
   {
-    console.log("Fetch doorbell status success:",data)
     return {
       type: FETCH_DOORBELL_OUT_SUCCESS,
       payload: {
@@ -101,11 +108,20 @@ function fetchDoorbellOut(unit) {
     dispatch(fetchDoorbellOutRequest(unit))
     return fetch("http://" + unit.ip + ":" + unit.port + "/v1/sm/doorbell-out/status")
       .then(
-        response => response.json(),
+        response => {
+          if(response.ok ){
+            return response.json()
+          }else{
+            return Promise.reject("Erikfeil!");
+          }
+        },
         error => console.log('An error occurred.', error)
       )
-      .then(json => {
-        dispatch(fetchDoorbellOutSuccess(unit, json))
-      })
+      .then(
+        json => {dispatch(fetchDoorbellOutSuccess(unit, json))}
+      )
+      .catch(
+        error => console.log("Inside fetchDoorbellOutRequest: got error:", error )
+      )
   }
 }
