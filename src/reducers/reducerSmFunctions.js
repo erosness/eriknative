@@ -29,8 +29,6 @@ export default function(state = initialState, action) {
           cap    : e.cap,
           uid    : action.payload.info.uid,
           name   : action.payload.info.name,
-          status : {},
-          local  : {},
         }
         localFuncs[e.fid]= func
       })
