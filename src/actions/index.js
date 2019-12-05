@@ -92,13 +92,13 @@ export const fetchStatusFailure = (unit) =>
   }
 };
 
-export const fetchStatusSuccess = (unit,data) =>
+export const fetchStatusSuccess = (info,status) =>
   {
     return {
       type: FETCH_STATUS_SUCCESS,
       payload: {
-        smServer: unit,
-        info: data
+        info: info,
+        status: status
     }
   }
 };
@@ -106,7 +106,6 @@ export const fetchStatusSuccess = (unit,data) =>
 function fetchStatus(unit, func) {
   return function(dispatch) {
     dispatch(fetchStatusRequest(unit))
-    console.log("At fetchStatus:",unit,func)
     return fetch("http://" + unit.ip + ":" + unit.port + "/v1/sm/" + func + "/status")
       .then(
         response => {
