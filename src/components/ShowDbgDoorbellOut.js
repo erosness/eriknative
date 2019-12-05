@@ -5,7 +5,7 @@ import { smStyles } from '../styles/SmFrameStyle';
 export default class ShowDbgDoorbellOut extends Component {
 
   render() {
-    if(this.props.isLoading){
+    if(this.props.isLoading || Object.keys(this.props.functionStatus).length == 0){
       return(
         <View style={[smStyles.topFrame,{height: 80}]}>
           <ActivityIndicator/>
@@ -13,11 +13,18 @@ export default class ShowDbgDoorbellOut extends Component {
       )
     }
     return(
+      <>
       <Text style={{textAlign: 'center',
                     fontSize: 18,
-                    backgroundColor: 'lightsteelblue'}} >
+                    backgroundColor: 'steelblue'}} >
                     Debug {this.props.elem.cap} at {this.props.elem.name}
       </Text>
+      <Text style={{textAlign: 'center',
+                    fontSize: 12,
+                    backgroundColor: 'lightgray'}} >
+                    Doorbell: {this.props.functionStatus.status.fid}
+      </Text>
+      </>
     );
   }
 }
