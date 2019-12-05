@@ -30,7 +30,7 @@ class DbgDoorbellOut extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {unitList: state.unitList};
+  return {unitList: state.unitList, statusList: state.statusList};
 };
 
 
