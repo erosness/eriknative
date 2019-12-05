@@ -3,9 +3,9 @@ import {
   FETCH_INFO_REQUEST,
   FETCH_INFO_FAILURE,
   FETCH_INFO_SUCCESS,
-  FETCH_DOORBELL_OUT_REQUEST,
-  FETCH_DOORBELL_OUT_FAILURE,
-  FETCH_DOORBELL_OUT_SUCCESS,
+  FETCH_STATUS_REQUEST,
+  FETCH_STATUS_FAILURE,
+  FETCH_STATUS_SUCCESS,
 } from "./actionTypes";
 
 export const getInfo = (ipPortPair) =>
@@ -67,35 +67,35 @@ function fetchInfo(ipPortPair) {
   }
 }
 
-export const getDoorbellOut = (unit) =>
+export const getStatus = (unit, func) =>
 {
-  return fetchDoorbellOut(unit)
+  return fetchStatus(unit, func)
 };
 
-export const fetchDoorbellOutRequest = (unit) =>
+export const fetchStatusRequest = (unit) =>
   {
     return {
-      type: FETCH_DOORBELL_OUT_REQUEST,
+      type: FETCH_STATUS_REQUEST,
       payload: {
         smServer: unit
     }
   }
 };
 
-export const fetchDoorbellOutFailure = (unit) =>
+export const fetchStatusFailure = (unit) =>
   {
     return {
-      type: FETCH_DOORBELL_OUT_FAILURE,
+      type: FETCH_STATUS_FAILURE,
       payload: {
         smServer: unit
     }
   }
 };
 
-export const fetchDoorbellOutSuccess = (unit,data) =>
+export const fetchStatusSuccess = (unit,data) =>
   {
     return {
-      type: FETCH_DOORBELL_OUT_SUCCESS,
+      type: FETCH_STATUS_SUCCESS,
       payload: {
         smServer: unit,
         info: data
@@ -103,9 +103,10 @@ export const fetchDoorbellOutSuccess = (unit,data) =>
   }
 };
 
-function fetchDoorbellOut(unit) {
+function fetchStatus(unit, func) {
   return function(dispatch) {
-    dispatch(fetchDoorbellOutRequest(unit))
+    dispatch(fetchStatusRequest(unit))
+    console.log("At fetchStatus:",unit,func)
     return fetch("http://" + unit.ip + ":" + unit.port + "/v1/sm/doorbell-out/status")
       .then(
         response => {
@@ -118,10 +119,10 @@ function fetchDoorbellOut(unit) {
         error => console.log('An error occurred.', error)
       )
       .then(
-        json => {dispatch(fetchDoorbellOutSuccess(unit, json))}
+        json => {dispatch(fetchStatusSuccess(unit, json))}
       )
       .catch(
-        error => console.log("Inside fetchDoorbellOutRequest: got error:", error )
+        error => console.log("Inside fetchStatus: got error:", error )
       )
   }
 }
