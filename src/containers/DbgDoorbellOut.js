@@ -4,7 +4,7 @@ import { smStyles } from '../styles/SmFrameStyle';
 import ShowDbgDoorbellOut from '../components/ShowDbgDoorbellOut';
 import { connect } from 'react-redux';
 
-import { getDoorbellOut } from '../actions';
+import { getStatus } from '../actions';
 
 class DbgDoorbellOut extends React.Component {
   constructor(props){
@@ -14,7 +14,8 @@ class DbgDoorbellOut extends React.Component {
   componentDidMount() {
     this.timer = setInterval(() => {
       const unit = this.props.unitList[this.props.elem.uid]
-      this.props.getDoorbellOut(unit)
+      const func = this.props.elem.cap
+      this.props.getStatus(unit,func)
     }, 10000)
   }
 
@@ -35,5 +36,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getDoorbellOut },
+  { getStatus },
 )(DbgDoorbellOut);
