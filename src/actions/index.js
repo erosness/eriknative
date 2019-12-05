@@ -107,7 +107,7 @@ function fetchStatus(unit, func) {
   return function(dispatch) {
     dispatch(fetchStatusRequest(unit))
     console.log("At fetchStatus:",unit,func)
-    return fetch("http://" + unit.ip + ":" + unit.port + "/v1/sm/doorbell-out/status")
+    return fetch("http://" + unit.ip + ":" + unit.port + "/v1/sm/" + func + "/status")
       .then(
         response => {
           if(response.ok ){
