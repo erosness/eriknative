@@ -33,7 +33,6 @@ const mapStateToProps = state => {
   return {unitList: state.unitList, functionStatus: state.functionStatus};
 };
 
-
 export default connect(
   mapStateToProps,
   { getStatus },
