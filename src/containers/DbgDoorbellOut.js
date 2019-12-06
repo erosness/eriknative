@@ -16,7 +16,7 @@ class DbgDoorbellOut extends React.Component {
       const unit = this.props.unitList[this.props.elem.uid]
       const func = this.props.elem.cap
       this.props.getStatus(unit,func)
-    }, 10000)
+    }, 2000)
   }
 
   render() {
