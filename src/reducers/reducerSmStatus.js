@@ -10,7 +10,6 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_STATUS_SUCCESS: {
       let localFuncs = Object.assign({}, action.payload);
-      console.log("reducerSmStatus:", state, action)
       return Object.assign({}, state,  {[action.payload.status.fid]:localFuncs})
     }
     default: {
