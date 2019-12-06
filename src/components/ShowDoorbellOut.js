@@ -5,11 +5,16 @@ import { smStyles } from '../styles/SmFrameStyle';
 export default class ShowDoorbellOut extends Component {
 
   render() {
-    if(this.props.isLoading){
+    if( this.props.isLoading ||
+        Object.keys(this.props.functionStatus).length == 0){
       return(
-        <View style={[smStyles.topFrame,{height: 80}]}>
           <ActivityIndicator/>
-        </View>
+      )
+    }
+    const func = this.props.functionStatus[this.props.elem.fid];
+    if(typeof func === 'undefined'){
+      return(
+          <ActivityIndicator/>
       )
     }
     return(
