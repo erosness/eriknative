@@ -19,7 +19,7 @@ class SmInfo extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { unitList: state.smInfoReducer.unitList };
+  return { unitList : state.unitList };
 };
 
 export default connect(mapStateToProps)(SmInfo);

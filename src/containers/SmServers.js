@@ -14,7 +14,7 @@ class SmServers extends React.Component {
 
   componentDidMount() {
     this.fetchIpAndPort()
-    this.timer = setInterval(() => this.fetchIpAndPort(), 10000)
+    this.timer = setInterval(() => this.fetchIpAndPort(), 5000)
   }
 
   fetchIpAndPort() {
