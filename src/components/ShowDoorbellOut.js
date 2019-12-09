@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { FlatList, ActivityIndicator, Text, View, Button, Alert  } from 'react-native';
+import { FlatList, ActivityIndicator, Text, View, Alert  } from 'react-native';
+import { Button } from 'native-base';
 import { smStyles } from '../styles/SmFrameStyle';
+import { ButtonIndicator } from './ButtonIndicator'
 
 export default class ShowDoorbellOut extends Component {
 
@@ -28,11 +30,9 @@ export default class ShowDoorbellOut extends Component {
                     Function {this.props.elem.cap} at {this.props.elem.name}
       </Text>
       <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
-      <Button style={Object.assign(
-          {},
-          func.status.doorbell == 0 ? onStyle : offStyle,
-          {height:80, flex:1})}
-        title="Erik"
+      <ButtonIndicator
+        indicatorStatus={func.status.doorbell}
+        title={"Doorbell!!!"}
         onPress={() => console.log('Simple Button pressed')}/>
       <Text style={Object.assign({},func.status.unlock == 0 ? onStyle : offStyle, {height:80, flex:1})}> Unlock</Text>
       <Text style={Object.assign({},func.status.dooropen == 0 ? onStyle : offStyle, {height:80, flex:1})}> Dooropen</Text>
