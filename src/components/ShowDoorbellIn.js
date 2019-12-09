@@ -4,7 +4,7 @@ import { Button } from 'native-base';
 import { smStyles } from '../styles/SmFrameStyle';
 import { ButtonIndicator } from './ButtonIndicator'
 
-export default class ShowDoorbellOut extends Component {
+export default class ShowDoorbellIn extends Component {
 
   render() {
     if( this.props.isLoading ||
