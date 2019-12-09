@@ -15,10 +15,14 @@ export class ButtonIndicator extends Component {
           style={Object.assign(
           {},
           this.props.indicatorStatus == 0 ? offStyle : onStyle,
-          {height:80, flex:1})}
+          {height:30,
+           flex:1,
+           borderWidth:2,
+           borderColor: 'black',
+           margin: 2})}
         title={"Erik"}
         onPress={() => console.log('Simple Button pressed')}>
-        <Text>{this.props.title}</Text>
+        <Text style={{textAlign: 'center'}}>{this.props.title}</Text>
       </Button>
   )};
 

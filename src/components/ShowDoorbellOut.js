@@ -23,20 +23,26 @@ export default class ShowDoorbellOut extends Component {
     const offStyle = {backgroundColor: '#ff0000'}
 
     return(
-      <View style={{height: 120}}>
-      <Text style={{textAlign: 'center',
-                    fontSize: 18,
-                    backgroundColor: 'lightsteelblue'}} >
-                    Function {this.props.elem.cap} at {this.props.elem.name}
-      </Text>
-      <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
-      <ButtonIndicator
-        indicatorStatus={func.status.doorbell}
-        title={"Doorbell!!!"}
-        onPress={() => console.log('Simple Button pressed')}/>
-      <Text style={Object.assign({},func.status.unlock == 0 ? onStyle : offStyle, {height:80, flex:1})}> Unlock</Text>
-      <Text style={Object.assign({},func.status.dooropen == 0 ? onStyle : offStyle, {height:80, flex:1})}> Dooropen</Text>
-      </View>
+      <View style={{height: 50}}>
+        <Text style={{textAlign: 'center',
+                      fontSize: 18,
+                      backgroundColor: 'lightsteelblue'}} >
+                      Function {this.props.elem.cap} at {this.props.elem.name}
+        </Text>
+        <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
+          <ButtonIndicator
+            indicatorStatus={func.status.doorbell}
+            title={"Doorbell"}
+            onPress={() => console.log('Simple Button pressed')}/>
+          <ButtonIndicator
+            indicatorStatus={func.status.unlock}
+            title={"Unlock"}
+            onPress={() => console.log('Simple Button pressed')}/>
+          <ButtonIndicator
+            indicatorStatus={func.status.dooropen}
+            title={"Dooropen"}
+            onPress={() => console.log('Simple Button pressed')}/>
+        </View>
       </View>
     );
   }
