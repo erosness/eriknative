@@ -31,16 +31,12 @@ export default class ShowDoorbellIn extends Component {
         </Text>
         <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
           <ButtonIndicator
-            indicatorStatus={func.status.doorbell}
-            title={"Doorbell"}
+            indicatorStatus={func.status.answer}
+            title={"Answer"}
             onPress={() => console.log('Simple Button pressed')}/>
           <ButtonIndicator
             indicatorStatus={func.status.unlock}
             title={"Unlock"}
-            onPress={() => console.log('Simple Button pressed')}/>
-          <ButtonIndicator
-            indicatorStatus={func.status.dooropen}
-            title={"Dooropen"}
             onPress={() => console.log('Simple Button pressed')}/>
         </View>
       </View>
