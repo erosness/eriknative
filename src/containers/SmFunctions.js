@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import SmDoorbellOut from './SmDoorbellOut'
 import DbgDoorbellOut from './DbgDoorbellOut'
+import SmDoorbellIn from './SmDoorbellIn'
+import DbgDoorbellIn from './DbgDoorbellIn'
 import { smStyles } from '../styles/SmFrameStyle';
 
 
@@ -31,6 +33,14 @@ class SmFunctions extends React.Component {
               <>
               <SmDoorbellOut elem = {elem} />
               <DbgDoorbellOut elem = {elem} />
+              </>
+           )
+        }
+        case "doorbell-in": {
+            return (
+              <>
+              <SmDoorbellIn elem = {elem} />
+              <DbgDoorbellIn elem = {elem} />
               </>
            )
         }
