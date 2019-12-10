@@ -21,7 +21,6 @@ export default class ShowDoorbellOut extends Component {
     }
     const onStyle = {backgroundColor: '#008000'}
     const offStyle = {backgroundColor: '#ff0000'}
-
     return(
       <View style={{height: 50}}>
         <Text style={{textAlign: 'center',

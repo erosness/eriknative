@@ -21,7 +21,6 @@ export default class ShowDoorbellIn extends Component {
     }
     const onStyle = {backgroundColor: '#008000'}
     const offStyle = {backgroundColor: '#ff0000'}
-
     return(
       <View style={{height: 50}}>
         <Text style={{textAlign: 'center',
@@ -31,12 +30,12 @@ export default class ShowDoorbellIn extends Component {
         </Text>
         <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
           <ButtonIndicator
-            indicatorStatus={func.status.answer}
-            title={"Answer"}
+            indicatorStatus={func.status.connectButton}
+            title={"Connect\nbutton"}
             onPress={() => console.log('Simple Button pressed')}/>
           <ButtonIndicator
-            indicatorStatus={func.status.unlock}
-            title={"Unlock"}
+            indicatorStatus={func.status.unlockButton}
+            title={"Unlock\nbutton"}
             onPress={() => console.log('Simple Button pressed')}/>
         </View>
       </View>

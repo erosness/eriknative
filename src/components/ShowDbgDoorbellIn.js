@@ -28,8 +28,8 @@ export default class ShowDbgDoorbellIn extends Component {
       <Text style={{textAlign: 'left',
                     fontSize: 12,
                     backgroundColor: 'lightgray'}} >
-                    Answer: {func.status.answer} {"\n"}
-                    Unlock: {func.status.unlock}
+                    Connect button: {func.status.connectButton} {"\n"}
+                    Unlock button: {func.status.unlockButton}
       </Text>
       </>
     )
