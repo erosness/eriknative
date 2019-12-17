@@ -4,7 +4,7 @@ import { Button } from 'native-base';
 import { smStyles } from '../styles/SmFrameStyle';
 import { ButtonIndicator } from './ButtonIndicator'
 
-export default class ShowDoorbellOut extends Component {
+export default class ShowDoorbellIn extends Component {
 
   render() {
     if( this.props.isLoading ||
@@ -30,16 +30,8 @@ export default class ShowDoorbellOut extends Component {
         </Text>
         <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
           <ButtonIndicator
-            indicatorStatus={func.status.doorbell}
-            title={"Doorbell"}
-            onPress={() => console.log('Simple Button pressed')}/>
-          <ButtonIndicator
-            indicatorStatus={func.status.unlock}
-            title={"Unlock"}
-            onPress={() => console.log('Simple Button pressed')}/>
-          <ButtonIndicator
-            indicatorStatus={func.status.dooropen}
-            title={"Dooropen"}
+            indicatorStatus={func.status.unlockButton}
+            title={"Unlock\nbutton"}
             onPress={() => console.log('Simple Button pressed')}/>
           <ButtonIndicator
             indicatorStatus={1}
