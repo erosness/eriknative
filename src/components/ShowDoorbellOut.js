@@ -41,6 +41,14 @@ export default class ShowDoorbellOut extends Component {
             indicatorStatus={func.status.dooropen}
             title={"Dooropen"}
             onPress={() => console.log('Simple Button pressed')}/>
+          <ButtonIndicator
+            indicatorStatus={1}
+            title={func.status.connection}
+            onPress={() => console.log('Simple Button pressed')}/>
+          <ButtonIndicator
+            indicatorStatus={func.status.state=="connected" ? 0 : 1}
+            title={func.status.state}
+            onPress={() => console.log('Simple Button pressed')}/>
         </View>
       </View>
     );

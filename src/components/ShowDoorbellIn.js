@@ -30,12 +30,16 @@ export default class ShowDoorbellIn extends Component {
         </Text>
         <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
           <ButtonIndicator
-            indicatorStatus={func.status.connectButton}
-            title={"Connect\nbutton"}
-            onPress={() => console.log('Simple Button pressed')}/>
-          <ButtonIndicator
             indicatorStatus={func.status.unlockButton}
             title={"Unlock\nbutton"}
+            onPress={() => console.log('Simple Button pressed')}/>
+          <ButtonIndicator
+            indicatorStatus={1}
+            title={func.status.connection}
+            onPress={() => console.log('Simple Button pressed')}/>
+          <ButtonIndicator
+            indicatorStatus={func.status.state=="connected" ? 0 : 1}
+            title={func.status.state}
             onPress={() => console.log('Simple Button pressed')}/>
         </View>
       </View>
