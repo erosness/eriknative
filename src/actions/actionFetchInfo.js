@@ -1,11 +1,7 @@
 import {
-  GET_INFO,
   FETCH_INFO_REQUEST,
   FETCH_INFO_FAILURE,
   FETCH_INFO_SUCCESS,
-  FETCH_STATUS_REQUEST,
-  FETCH_STATUS_FAILURE,
-  FETCH_STATUS_SUCCESS,
 } from "./actionTypes";
 
 export const getInfo = (ipPortPair) =>

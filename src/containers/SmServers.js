@@ -4,7 +4,7 @@ import { smStyles } from '../styles/SmFrameStyle';
 import ShowServers from '../components/ShowServers';
 
 import { connect } from 'react-redux';
-import { getInfo } from '../actions';
+import { getInfo } from '../actions/actionFetchInfo';
 
 class SmServers extends React.Component {
   constructor(props){

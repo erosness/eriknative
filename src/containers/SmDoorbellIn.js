@@ -4,7 +4,7 @@ import { smStyles } from '../styles/SmFrameStyle';
 import ShowDoorbellIn from '../components/ShowDoorbellIn';
 import { connect } from 'react-redux';
 
-import { getStatus } from '../actions';
+import { getStatus } from '../actions/actionFetchStatus';
 
 class SmDoorbellIn extends React.Component {
   constructor(props){
