@@ -18,7 +18,7 @@ class SmServers extends React.Component {
   }
 
   fetchIpAndPort() {
-    return fetch('http://10.0.1.108:5055/v1/sm/zeroconf', {
+    return fetch('http://10.0.1.109:5055/v1/sm/zeroconf', {
       method: 'GET',
       headers: {
         Accept: '*',
