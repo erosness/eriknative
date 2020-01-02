@@ -10,6 +10,10 @@ const offStyle = {backgroundColor: '#ff0000'}
 
 export class ButtonDoorbell extends Button {
 
+  setDoorbellAge() {
+    console.log("setDoorbellAge")
+  }
+
   render() {
 
     let doorbellAgeColor = 'white'
@@ -38,7 +42,7 @@ export class ButtonDoorbell extends Button {
            borderWidth:2,
            borderColor: 'black',
            margin: 2})}
-         onPress={() => console.log('Simple Button pressed')}>
+         onPress={() => this.setDoorbellAge()}>
         <Text style={{textAlign: 'center'}}>{this.props.title}</Text>
       </Button>
   )};
