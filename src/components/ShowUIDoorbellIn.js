@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 import { smStyles } from '../styles/SmFrameStyle';
+import { ButtonIndicator } from './ButtonIndicator'
+import { ButtonDoorbell } from './ButtonDoorbell'
 
 export default class ShowUIDoorbellIn extends Component {
 
@@ -19,13 +21,27 @@ export default class ShowUIDoorbellIn extends Component {
     }
 
     return(
-      <>
-      <Text style={{textAlign: 'center',
-                    fontSize: 18,
-                    backgroundColor: 'steelblue'}} >
-                    UI {this.props.fid} {func.status.doorbellAge} {func.status.doorbell}
-      </Text>
-      </>
+      <View style={{height: 50}}>
+        <Text style={{textAlign: 'center',
+                      fontSize: 18,
+                      backgroundColor: 'steelblue'}} >
+                      UI {this.props.fid} {func.status.doorbellAge} {func.status.doorbell}
+        </Text>
+        <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
+          <ButtonDoorbell
+            doorbellAge={func.status.doorbellAge}
+            title={"Doorbell"}
+            onPress={() => console.log('Simplexx Button pressed')}/>
+          <ButtonIndicator
+            indicatorStatus={func.status.doorbell}
+            title={"Doorbell"}
+            onPress={() => console.log('Simple Button pressed')}/>
+          <ButtonIndicator
+            indicatorStatus={func.status.doorbell}
+            title={"Doorbell"}
+            onPress={() => console.log('Simple Button pressed')}/>
+        </View>
+      </View>
     )
   };
 }
