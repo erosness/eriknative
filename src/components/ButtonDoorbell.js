@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import { Text } from 'react-native'
 import { Button } from 'native-base';
 import { Icon } from 'react-native-elements'
+import { connect } from 'react-redux'
 
 import { putFunction } from '../actions/actionPutFunction'
 
 const onStyle = {backgroundColor: '#008000'}
 const offStyle = {backgroundColor: '#ff0000'}
 
-export class ButtonDoorbell extends Component {
+class ButtonDoorbell extends Component {
 
   setDoorbellAge(e) {
-    console.log("setDoorbellAge:", e)
-    putFunction(this.props.func.info,"doorbell-out","doorbellAge",{doorbellAge:-1})
+    this.props.dispatch(putFunction(this.props.func.info,"doorbell-out","doorbell-age",{doorbellAge:-1}))
   }
 
   render() {
@@ -50,3 +50,5 @@ export class ButtonDoorbell extends Component {
   )};
 
 }
+
+export default connect()(ButtonDoorbell)

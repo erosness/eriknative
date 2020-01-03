@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 import { smStyles } from '../styles/SmFrameStyle';
 import { ButtonIndicator } from './ButtonIndicator'
-import { ButtonDoorbell } from './ButtonDoorbell'
+import ButtonDoorbell from './ButtonDoorbell'
 
 export default class ShowUIDoorbellIn extends Component {
 
