@@ -29,9 +29,8 @@ export default class ShowUIDoorbellIn extends Component {
         </Text>
         <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
           <ButtonDoorbell
-            doorbellAge={func.status.doorbellAge}
-            title={"Doorbell"}
-            onPress={() => console.log('Simplexx Button pressed')}/>
+            func={func}
+            title={"Doorbell"}/>
           <ButtonIndicator
             indicatorStatus={func.status.doorbell}
             title={"Doorbell"}
