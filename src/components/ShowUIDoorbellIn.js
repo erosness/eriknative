@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 import { smStyles } from '../styles/SmFrameStyle';
-import { ButtonIndicator } from './ButtonIndicator'
 import ButtonDoorbell from './ButtonDoorbell'
 import ButtonVoice from './ButtonVoice'
+import ButtonLock from './ButtonLock'
 
 export default class ShowUIDoorbellIn extends Component {
 
@@ -35,10 +35,9 @@ export default class ShowUIDoorbellIn extends Component {
           <ButtonVoice
             func={func}
             title={"Voice"}/>
-          <ButtonIndicator
-            indicatorStatus={func.status.doorbell}
-            title={"Doorbell"}
-            onPress={() => console.log('Simple Button pressed')}/>
+          <ButtonLock
+            func={func}
+            title={"Lock"}/>
         </View>
       </View>
     )
