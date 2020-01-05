@@ -28,9 +28,13 @@ export default class ShowDbgDoorbellOut extends Component {
       <Text style={{textAlign: 'left',
                     fontSize: 12,
                     backgroundColor: 'lightgray'}} >
-                    Doorbell: {func.status.doorbell} {"\n"}
+                    Doorbell active?: {func.status.doorbell} {"\n"}
+                    Doorbell age?: {func.status.doorbellAge} {"\n"}
                     Unlock: {func.status.unlock} {"\n"}
-                    Dooropen: {func.status.dooropen}
+                    Dooropen: {func.status.dooropen} {"\n"}
+                    Voice connection: {func.status.connection} {"\n"}
+                    Voice state: {func.status.state}
+
       </Text>
       </>
     )

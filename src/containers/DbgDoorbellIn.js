@@ -4,7 +4,7 @@ import { smStyles } from '../styles/SmFrameStyle';
 import ShowDbgDoorbellIn from '../components/ShowDbgDoorbellIn';
 import { connect } from 'react-redux';
 
-import { getStatus } from '../actions';
+import { getStatus } from '../actions/actionFetchStatus';
 
 class DbgDoorbellIn extends React.Component {
   constructor(props){

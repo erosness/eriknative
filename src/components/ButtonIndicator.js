@@ -12,7 +12,7 @@ export class ButtonIndicator extends Component {
   render() {
     return (
       <Button
-          style={Object.assign(
+        style={Object.assign(
           {},
           this.props.indicatorStatus == 0 ? offStyle : onStyle,
           {height:30,
@@ -20,8 +20,7 @@ export class ButtonIndicator extends Component {
            borderWidth:2,
            borderColor: 'black',
            margin: 2})}
-        title={"Erik"}
-        onPress={() => console.log('Simple Button pressed')}>
+         onPress={() => console.log('Simple Button pressed')}>
         <Text style={{textAlign: 'center'}}>{this.props.title}</Text>
       </Button>
   )};

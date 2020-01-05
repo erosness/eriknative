@@ -6,19 +6,6 @@ import {
 
 let initialState = {};
 
-const shallowCustomCompareUnits = (a, b) => {
-  return (a.uid == b.uid && a.name == b.name && a.ip == b.ip && a.port == b.port)
-}
-
-const addUnitToList = (unitList, unit) => {
-  console.log("At addUnitToList:", unitList, unit)
-  console.log ("MAP:" , unitList.map( u => {shallowCustomCompareUnits(u, unit.uid)}).some(u => {u}))
-  if(!unitList.map( u => {shallowCustomCompareUnits(u, unit.uid)}).some(u => {u})) {
-    unitList[unit.uid] = unit
-  }
-  return unitList
-}
-
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_INFO_SUCCESS: {

@@ -6,6 +6,7 @@ import SmDoorbellOut from './SmDoorbellOut'
 import DbgDoorbellOut from './DbgDoorbellOut'
 import SmDoorbellIn from './SmDoorbellIn'
 import DbgDoorbellIn from './DbgDoorbellIn'
+import UIDoorbellIn from './UIDoorbellIn'
 import { smStyles } from '../styles/SmFrameStyle';
 
 
@@ -52,8 +53,16 @@ class SmFunctions extends React.Component {
       }
     });
 
+    const ui =
+    (
+      <>
+      <UIDoorbellIn fid = {814169} />
+      </>
+    )
+
     return (
       <View style={{flex:1}}>
+      {ui}
       {f}
       </View>
     );

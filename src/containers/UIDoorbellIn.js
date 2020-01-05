@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { FlatList, Text, View, StyleSheet  } from 'react-native';
 import { smStyles } from '../styles/SmFrameStyle';
-import ShowDoorbellOut from '../components/ShowDoorbellOut';
+import ShowUIDoorbellIn from '../components/ShowUIDoorbellIn';
 import { connect } from 'react-redux';
 
 import { getStatus } from '../actions/actionFetchStatus';
 
-class SmDoorbellOut extends React.Component {
+class UIDoorbellIn extends React.Component {
   constructor(props){
     super(props);
     this.state ={ isLoading: true}
@@ -17,7 +17,7 @@ class SmDoorbellOut extends React.Component {
     return (
       // Try setting `flexDirection` to `column`.
       <View style={[smStyles.topFrame, {flexDirection: 'column'}]}>
-        <ShowDoorbellOut elem={this.props.elem} functionStatus={this.props.functionStatus}/>
+        <ShowUIDoorbellIn fid={this.props.fid} functionStatus={this.props.functionStatus}/>
       </View>
     );
   };
@@ -31,4 +31,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { getStatus },
-)(SmDoorbellOut);
+)(UIDoorbellIn);
