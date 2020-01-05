@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View, StyleSheet  } from 'react-native';
 import { connect } from "react-redux";
 
-import SmDoorbellOut from './SmDoorbellOut'
 import DbgDoorbellOut from './DbgDoorbellOut'
-import SmDoorbellIn from './SmDoorbellIn'
 import DbgDoorbellIn from './DbgDoorbellIn'
 import UIDoorbellIn from './UIDoorbellIn'
 import { smStyles } from '../styles/SmFrameStyle';
@@ -32,7 +30,6 @@ class SmFunctions extends React.Component {
         case "doorbell-out": {
             return (
               <>
-              <SmDoorbellOut elem = {elem} />
               <DbgDoorbellOut elem = {elem} />
               </>
            )
@@ -40,7 +37,6 @@ class SmFunctions extends React.Component {
         case "doorbell-in": {
             return (
               <>
-              <SmDoorbellIn elem = {elem} />
               <DbgDoorbellIn elem = {elem} />
               </>
            )
@@ -56,7 +52,7 @@ class SmFunctions extends React.Component {
     const ui =
     (
       <>
-      <UIDoorbellIn fid = {814169} />
+      <UIDoorbellIn doorbellOutFid = {814169} />
       </>
     )
 
