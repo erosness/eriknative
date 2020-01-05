@@ -8,13 +8,12 @@ import ButtonLock from './ButtonLock'
 export default class ShowUIDoorbellIn extends Component {
 
   render() {
-    if( this.props.isLoading ||
-        Object.keys(this.props.functionStatus).length == 0){
+    if( this.props.isLoading ){
       return(
           <ActivityIndicator/>
       )
     }
-    const func = this.props.functionStatus[this.props.fid];
+    const func = this.props.func;
     if(typeof func === 'undefined'){
       return(
           <ActivityIndicator/>
@@ -26,7 +25,7 @@ export default class ShowUIDoorbellIn extends Component {
         <Text style={{textAlign: 'center',
                       fontSize: 18,
                       backgroundColor: 'steelblue'}} >
-                      UI {this.props.fid} {func.status.doorbellAge} {func.status.doorbell}
+                      Doorbell In {func.status.doorbellAge} {func.status.doorbell}
         </Text>
         <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
           <ButtonDoorbell

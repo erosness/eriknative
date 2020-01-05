@@ -17,7 +17,8 @@ class UIDoorbellIn extends React.Component {
     return (
       // Try setting `flexDirection` to `column`.
       <View style={[smStyles.topFrame, {flexDirection: 'column'}]}>
-        <ShowUIDoorbellIn fid={this.props.doorbellOutFid} functionStatus={this.props.functionStatus}/>
+        <ShowUIDoorbellIn
+          func={this.props.functionStatus[this.props.doorbellOutFid]}/>
       </View>
     );
   };
