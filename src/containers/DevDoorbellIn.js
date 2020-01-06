@@ -7,52 +7,26 @@ import { putFunction } from '../actions/actionPutFunction'
 
 class DevDoorbellIn extends React.Component {
 
+  getImageObject(time){
+    if (time < 0) { return  {"image":"black"}}
+    if (time < 1) { return  {"image":"ring","repeat":"yes"}}
+    if (time < 60) { return  {"image":"didring1"}}
+    if (time < 300) { return  {"image":"didring2"}}
+    if (time < 36000) { return  {"image":"didring3"}}
+     return  {"image":"didring4"}
+  }
+
   processState(inFunc, outFunc) {
     console.log("process-state", inFunc, outFunc)
-    if(outFunc.status.doorbellAge < 0 ) {
       this.props.dispatch(
         putFunction(
           inFunc.info,
           "doorbell-in",
           "display",
-          {"image":"black"}))
-    }else if(outFunc.status.doorbellAge < 1 ){
-      this.props.dispatch(
-        putFunction(
-          inFunc.info,
-          "doorbell-in",
-          "display",
-          {"image":"ring","repeat":"yes"}))
-    }else if(outFunc.status.doorbellAge < 60 ){
-      this.props.dispatch(
-        putFunction(
-          inFunc.info,
-          "doorbell-in",
-          "display",
-          {"image":"didring1"}))
-    }else if(outFunc.status.doorbellAge < 300 ){
-      this.props.dispatch(
-        putFunction(
-          inFunc.info,
-          "doorbell-in",
-          "display",
-          {"image":"didring2"}))
-    }else if(outFunc.status.doorbellAge < 36000 ){
-      this.props.dispatch(
-        putFunction(
-          inFunc.info,
-          "doorbell-in",
-          "display",
-          {"image":"didring3"}))
-    }else{
-      this.props.dispatch(
-        putFunction(
-          inFunc.info,
-          "doorbell-in",
-          "display",
-          {"image":"didring4"}))
+          this.getImageObject(outFunc.status.doorbellAge)
+        )
+      )
     }
-  }
 
   render() {
     if (typeof this.props.functionStatus !== 'undefined' &&
