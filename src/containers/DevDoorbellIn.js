@@ -16,13 +16,41 @@ class DevDoorbellIn extends React.Component {
           "doorbell-in",
           "display",
           {"image":"black"}))
-    }else{
+    }else if(outFunc.status.doorbellAge < 1 ){
       this.props.dispatch(
         putFunction(
           inFunc.info,
           "doorbell-in",
           "display",
           {"image":"ring","repeat":"yes"}))
+    }else if(outFunc.status.doorbellAge < 60 ){
+      this.props.dispatch(
+        putFunction(
+          inFunc.info,
+          "doorbell-in",
+          "display",
+          {"image":"didring1"}))
+    }else if(outFunc.status.doorbellAge < 300 ){
+      this.props.dispatch(
+        putFunction(
+          inFunc.info,
+          "doorbell-in",
+          "display",
+          {"image":"didring2"}))
+    }else if(outFunc.status.doorbellAge < 36000 ){
+      this.props.dispatch(
+        putFunction(
+          inFunc.info,
+          "doorbell-in",
+          "display",
+          {"image":"didring3"}))
+    }else{
+      this.props.dispatch(
+        putFunction(
+          inFunc.info,
+          "doorbell-in",
+          "display",
+          {"image":"didring4"}))
     }
   }
 
