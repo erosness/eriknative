@@ -10,10 +10,13 @@ class UIDoorbellIn extends React.Component {
   constructor(props){
     super(props);
     this.state ={ isLoading: true}
+    console.log("New UIDoorbellIn")
+    this.count = 0;
   }
 
   render() {
-
+    this.count++;
+    if((this.count % 10)==0){console.log("Count=", this.count)}
     return (
       // Try setting `flexDirection` to `column`.
       <View style={[smStyles.topFrame, {flexDirection: 'column'}]}>
