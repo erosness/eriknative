@@ -53,7 +53,8 @@ class SmFunctions extends React.Component {
     const ui =
     (
       <>
-      <UIDoorbellIn doorbellOutFid = {814169} />
+      <UIDoorbellIn
+       doorbellOutFid = {814169} />
       <DevDoorbellIn
         doorbellOutFid= {814169}
         doorbellInFid= {318100} />
