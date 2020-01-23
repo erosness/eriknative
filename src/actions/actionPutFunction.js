@@ -44,7 +44,6 @@ function putF(unit, func, name, payload) {
   return function(dispatch) {
     dispatch(putRequest(unit))
     const url = "http://" + unit.ip + ":" + unit.port + "/v1/sm/" + func + "/" + name
-    console.log("URL=",url)
     return fetch(url,{
         method:'post',
         body: JSON.stringify(payload)})
@@ -59,8 +58,9 @@ function putF(unit, func, name, payload) {
         error => console.log('An error occurred.', error)
       )
       .then(
-/*        json => {dispatch(putSuccess(unit, json))} */
-            json => console.log("putSuccess", unit, json)
+        json => {dispatch(putSuccess(unit, json))
+/*          console.log("putSuccess", unit, json) */
+        }
       )
       .catch(
         error => console.log("Inside fetchStatus: got error:", error )
