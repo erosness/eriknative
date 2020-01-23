@@ -14,12 +14,11 @@ export default class ShowUIDoorbellIn extends Component {
       )
     }
     const func = this.props.func;
-    if(typeof func === 'undefined'){
+    if(func.status === undefined){
       return(
           <ActivityIndicator/>
       )
     }
-
     return(
       <View style={{height: 50}}>
         <Text style={{textAlign: 'center',
@@ -30,6 +29,7 @@ export default class ShowUIDoorbellIn extends Component {
         <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
           <ButtonDoorbell
             func={func}
+            unit={this.props.unit}
             title={"Doorbell"}/>
           <ButtonVoice
             func={func}

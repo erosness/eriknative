@@ -13,12 +13,7 @@ export default function(state = initialState, action) {
       var o = state;
       action.payload.info.cap.forEach( e => {
         if(e.fid == pidDoorbellOut) {
-          const func = {
-            fid    : e.fid,
-            cap    : e.cap,
-            uid    : action.payload.info.uid,
-            name   : action.payload.info.name,
-          }
+          const func = action.payload.info
           o = Object.assign({}, state, {info: func})
         } else {
           return state;

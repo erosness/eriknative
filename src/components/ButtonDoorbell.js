@@ -12,7 +12,7 @@ const offStyle = {backgroundColor: '#ff0000'}
 class ButtonDoorbell extends Component {
 
   setDoorbellAge(e) {
-    this.props.dispatch(putFunction(this.props.func.info,"doorbell-out","doorbell-age",{doorbellAge:-1}))
+    this.props.dispatch(putFunction(this.props.unit,"doorbell-out","doorbell-age",{doorbellAge:-1}))
   }
 
   render() {

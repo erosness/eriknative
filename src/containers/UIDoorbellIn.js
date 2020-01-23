@@ -10,15 +10,15 @@ class UIDoorbellIn extends React.Component {
   constructor(props){
     super(props);
     this.state ={ isLoading: true}
-    console.log("New UIDoorbellIn")
     this.count = 0;
   }
 
   render() {
     this.count++;
     if((this.count % 10)==0){console.log("Count=", this.count)}
-    console.log("render in UIDoorbellIn:", this)
-    if(this.props.UIDooxrbell === undefined){
+    if(this.props.UIDoorbell === undefined ||
+       this.props.UIDoorbell == {} ||
+       this.props.UIDoorbell.info == undefined) {
       return(
         <View style={[smStyles.topFrame, {flexDirection: 'column'}]}>
           <ActivityIndicator/>
@@ -29,7 +29,8 @@ class UIDoorbellIn extends React.Component {
         // Try setting `flexDirection` to `column`.
         <View style={[smStyles.topFrame, {flexDirection: 'column'}]}>
           <ShowUIDoorbellIn
-            func={this.props.UIDoorbell[this.props.doorbellOutFid]}/>
+            func={this.props.UIDoorbell}
+            unit={this.props.unitList[this.props.UIDoorbell.info.uid]}/>
         </View>
       );
     }
