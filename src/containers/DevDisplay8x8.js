@@ -29,7 +29,10 @@ class DevDisplay8x8 extends React.Component {
 
   processDisplayState() {
     let image = this.getImageObject(this.props.Display8x8.statusDoorbellOut.doorbellAge)
-    this.setDisplay8x8Image(image)
+    let oldImage = this.props.Display8x8.statusDisplay8x8
+    if (image["image"] != oldImage["image"]) {
+      this.setDisplay8x8Image(image)
+    }
   }
 
   render() {
