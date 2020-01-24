@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import DbgDoorbellOut from './DbgDoorbellOut'
 import DbgDoorbellIn from './DbgDoorbellIn'
+import DbgDisplay8x8 from './DbgDisplay8x8'
 import UIDoorbellIn from './UIDoorbellIn'
 import DevDoorbellIn from './DevDoorbellIn'
 import { smStyles } from '../styles/SmFrameStyle';
@@ -39,6 +40,13 @@ class SmFunctions extends React.Component {
             return (
               <>
               <DbgDoorbellIn elem = {elem} />
+              </>
+           )
+        }
+        case "display8x8": {
+            return (
+              <>
+              <DbgDisplay8x8 elem = {elem} />
               </>
            )
         }
