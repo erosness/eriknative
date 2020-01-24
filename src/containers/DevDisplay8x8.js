@@ -36,7 +36,8 @@ class DevDisplay8x8 extends React.Component {
   }
 
   render() {
-    if(this.props.Display8x8.statusDoorbellOut != undefined) {
+    if(this.props.Display8x8.statusDoorbellOut != undefined &&
+       this.props.Display8x8.statusDisplay8x8 != undefined) {
       this.processDisplayState()
     }
     return(
