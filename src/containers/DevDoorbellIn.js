@@ -17,14 +17,6 @@ class DevDoorbellIn extends React.Component {
   }
 
   processState(inFunc, outFunc) {
-      this.props.dispatch(
-        putFunction(
-          inFunc.info,
-          "doorbell-in",
-          "display",
-          this.getImageObject(outFunc.status.doorbellAge)
-        )
-      )
     }
 
   render() {

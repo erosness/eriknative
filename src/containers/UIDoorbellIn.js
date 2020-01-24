@@ -10,12 +10,9 @@ class UIDoorbellIn extends React.Component {
   constructor(props){
     super(props);
     this.state ={ isLoading: true}
-    this.count = 0;
   }
 
   render() {
-    this.count++;
-    if((this.count % 10)==0){console.log("Count=", this.count)}
     if(this.props.UIDoorbell === undefined ||
        this.props.UIDoorbell == {} ||
        this.props.UIDoorbell.info == undefined) {
