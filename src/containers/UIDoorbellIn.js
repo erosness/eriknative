@@ -15,7 +15,7 @@ class UIDoorbellIn extends React.Component {
   render() {
     if(this.props.UIDoorbell === undefined ||
        this.props.UIDoorbell == {} ||
-       this.props.UIDoorbell.info == undefined) {
+       this.props.UIDoorbell.infoDoorbellOut == undefined) {
       return(
         <View style={[smStyles.topFrame, {flexDirection: 'column'}]}>
           <ActivityIndicator/>
@@ -27,7 +27,7 @@ class UIDoorbellIn extends React.Component {
         <View style={[smStyles.topFrame, {flexDirection: 'column'}]}>
           <ShowUIDoorbellIn
             func={this.props.UIDoorbell}
-            unit={this.props.unitList[this.props.UIDoorbell.info.uid]}/>
+            unit={this.props.unitList[this.props.UIDoorbell.infoDoorbellOut.uid]}/>
         </View>
       );
     }

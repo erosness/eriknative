@@ -18,17 +18,17 @@ class ButtonDoorbell extends Component {
   render() {
 
     let doorbellAgeColor = 'white'
-    if (this.props.func.status.doorbellAge < 0)
+    if (this.props.func.statusDoorbellOut.doorbellAge < 0)
       doorbellAgeColor = 'white'
-    else if (this.props.func.status.doorbellAge < 1)
+    else if (this.props.func.statusDoorbellOut.doorbellAge < 1)
       doorbellAgeColor = 'red'
-    else if (this.props.func.status.doorbellAge < 5)
+    else if (this.props.func.statusDoorbellOut.doorbellAge < 5)
       doorbellAgeColor = 'mediumvioletred'
-    else if (this.props.func.status.doorbellAge < 60)
+    else if (this.props.func.statusDoorbellOut.doorbellAge < 60)
       doorbellAgeColor = 'mediumpurple'
-    else if (this.props.func.status.doorbellAge < 300)
+    else if (this.props.func.statusDoorbellOut.doorbellAge < 300)
       doorbellAgeColor = 'mediumaquamarine'
-    else if (this.props.func.status.doorbellAge < 36000)
+    else if (this.props.func.statusDoorbellOut.doorbellAge < 36000)
       doorbellAgeColor = 'lightsteelblue'
     else
       doorbellAgeColor = 'lavender'

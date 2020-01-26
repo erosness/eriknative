@@ -14,7 +14,7 @@ export default class ShowUIDoorbellIn extends Component {
       )
     }
     const func = this.props.func;
-    if(func.status === undefined){
+    if(func.statusDoorbellOut === undefined){
       return(
           <ActivityIndicator/>
       )
@@ -24,7 +24,7 @@ export default class ShowUIDoorbellIn extends Component {
         <Text style={{textAlign: 'center',
                       fontSize: 18,
                       backgroundColor: 'steelblue'}} >
-                      Doorbell In {func.status.doorbellAge} {func.status.doorbell}
+                      Doorbell In {func.statusDoorbellOut.doorbellAge} {func.statusDoorbellOut.doorbell}
         </Text>
         <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
           <ButtonDoorbell

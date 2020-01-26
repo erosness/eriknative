@@ -28,10 +28,9 @@ export default class ShowDbgDoorbellIn extends Component {
       <Text style={{textAlign: 'left',
                     fontSize: 12,
                     backgroundColor: 'lightgray'}} >
-                    Display: {func.status.display} {"\n"}
                     Connection type: {func.status.connection} {"\n"}
                     Connection state: {func.status.state} {"\n"}
-                    Connect button: {func.status.connectButton} {"\n"}
+                    Connect button: {func.status.callButton} {"\n"}
                     Unlock button: {func.status.unlockButton}
       </Text>
       </>

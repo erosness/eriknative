@@ -9,15 +9,15 @@ import { putFunction } from '../actions/actionPutFunction'
 class ButtonLock extends Component {
 
   setDoorbellAge(e) {
-    this.props.dispatch(putFunction(this.props.func.info,"doorbell-out","doorbell-age",{doorbellAge:-1}))
+    this.props.dispatch(putFunction(this.props.func.infoDoorbellOut,"doorbell-out","doorbell-age",{doorbellAge:-1}))
   }
 
   render() {
 
     let doorStatusColor = 'white'
-    if (this.props.func.status.unlock == 0)
+    if (this.props.func.statusDoorbellOut.unlock == 0)
       doorStatusColor = 'white'
-    else if (this.props.func.status.dooropen == 0)
+    else if (this.props.func.statusDoorbellOut.dooropen == 0)
       doorStatusColor = 'red'
     else
       doorStatusColor = 'steelblue'
