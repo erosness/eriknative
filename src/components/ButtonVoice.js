@@ -14,17 +14,18 @@ class ButtonVoice extends Component {
 
   render() {
 
-    let voiceStateColor = 'white'
+    let voiceStateColor = 'gray'
 
-    if(this.props.func.statusDoorbellIn != undefined) {
-      if (this.props.func.statusDoorbellIn.state == 'connected')
-        voiceStateColor = 'red'
-      else if (this.props.func.statusDoorbellIn.state == 'connecting')
-        voiceStateColor = 'lightsteelblue'
-      else if (this.props.func.statusDoorbellIn.state == 'idle')
-        voiceStateColor = 'white'
+    if(this.props.func.statusDoorbellIn != undefined &&
+       this.props.func.statusDoorbellOut != undefined) {
+      if (this.props.func.statusDoorbellIn.state == 'connected' &&
+          this.props.func.statusDoorbellOut.state == 'connected')
+        voiceStateColor = 'green'
+      else if (this.props.func.statusDoorbellIn.state == 'idle' &&
+               this.props.func.statusDoorbellOut.state != 'idle')
+        voiceStateColor = 'lightsalmon'
       else
-        voiceStateColor = 'gray'
+        voiceStateColor = 'white'
     }
 
     return (
