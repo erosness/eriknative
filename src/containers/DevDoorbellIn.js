@@ -24,8 +24,31 @@ class DevDoorbellIn extends React.Component {
     this.props.dispatch(putFunction(unit,"doorbell-in","voice-indicator",{color: voiceStateColor}))
   }
 
-  processState(inFunc, outFunc) {
+  processVoiceButton() {
+    let inUnit = this.props.unitList[this.props.DevDoorbell.infoDoorbellIn.uid]
+    let outUnit = this.props.unitList[this.props.DevDoorbell.infoDoorbellOut.uid]
+    if(this.props.DevDoorbell.statusDoorbellIn != undefined) {
+      if(this.props.DevDoorbell.statusDoorbellIn.state == 'idle' &&
+        this.props.DevDoorbell.statusDoorbellIn.callButton == 1) {
+        this.props.dispatch(putFunction(inUnit,
+                                        "doorbell-in",
+                                        "connect",
+                                        {"connect":outUnit.ip}))
+      }
+      if (this.props.DevDoorbell.statusDoorbellIn.state == 'connected' &&
+        this.props.DevDoorbell.statusDoorbellIn.callButton == 0) {
+        this.props.dispatch(putFunction(inUnit,
+                                        "doorbell-in",
+                                        "connect",
+                                        {"disconnect":outUnit.ip}))
+      }
+    }
+
+  }
+
+  processState() {
     this.processVoiceIndicator()
+    this.processVoiceButton()
   }
 
   render() {
