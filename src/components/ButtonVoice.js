@@ -9,7 +9,19 @@ import { putFunction } from '../actions/actionPutFunction'
 class ButtonVoice extends Component {
 
   connectVoice(e) {
-    this.props.dispatch(putFunction(this.props.func.infoDoorbellIn,"doorbell-in","connect",{"connect":"pi@10.0.1.108"}))
+    if(this.props.func.statusDoorbellIn != undefined) {
+      if(this.props.func.statusDoorbellIn.state == 'idle') {
+        this.props.dispatch(putFunction(this.props.unit,
+                                        "doorbell-in",
+                                        "connect",
+                                        {"connect":this.props.outUnitIP}))
+      } else {
+        this.props.dispatch(putFunction(this.props.unit,
+                                        "doorbell-in",
+                                        "connect",
+                                        {"disconnect":this.props.outUnitIP}))
+      }
+    }
   }
 
   render() {
