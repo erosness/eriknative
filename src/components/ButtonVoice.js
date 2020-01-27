@@ -9,20 +9,23 @@ import { putFunction } from '../actions/actionPutFunction'
 class ButtonVoice extends Component {
 
   connectVoice(e) {
-    this.props.dispatch(putFunction(this.props.func.info,"doorbell-in","??",{"boo":5}))
+    this.props.dispatch(putFunction(this.props.func.infoDoorbellIn,"doorbell-in","connect",{"connect":"pi@10.0.1.108"}))
   }
 
   render() {
 
-    let voiceStateColor
-    if (this.props.func.status.state == 'connected')
-      voiceStateColor = 'red'
-    else if (this.props.func.status.state == 'connecting')
-      voiceStateColor = 'lightsteelblue'
-    else if (this.props.func.status.state == 'idle')
-      voiceStateColor = 'white'
-    else
-      voiceStateColor = 'gray'
+    let voiceStateColor = 'white'
+
+    if(this.props.func.statusDoorbellIn != undefined) {
+      if (this.props.func.statusDoorbellIn.state == 'connected')
+        voiceStateColor = 'red'
+      else if (this.props.func.statusDoorbellIn.state == 'connecting')
+        voiceStateColor = 'lightsteelblue'
+      else if (this.props.func.statusDoorbellIn.state == 'idle')
+        voiceStateColor = 'white'
+      else
+        voiceStateColor = 'gray'
+    }
 
     return (
       <Button

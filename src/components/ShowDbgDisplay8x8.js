@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 import { smStyles } from '../styles/SmFrameStyle';
 
-export default class ShowDbgDoorbellIn extends Component {
+export default class ShowDbgDisplay8x8 extends Component {
 
   render() {
     if( this.props.isLoading ||
@@ -28,12 +28,7 @@ export default class ShowDbgDoorbellIn extends Component {
       <Text style={{textAlign: 'left',
                     fontSize: 12,
                     backgroundColor: 'lightgray'}} >
-                    Connection type: {func.status.connection} {"\n"}
-                    Connection state: {func.status.state} {"\n"}
-                    Door indicator: {func.status.doorIndicator} {"\n"}
-                    Voice indicator: {func.status.voiceIndicator} {"\n"}
-                    Connect button: {func.status.callButton} {"\n"}
-                    Unlock button: {func.status.unlockButton}
+                    Image: {func.status.image} {"\n"}
       </Text>
       </>
     )

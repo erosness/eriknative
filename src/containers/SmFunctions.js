@@ -4,8 +4,10 @@ import { connect } from "react-redux";
 
 import DbgDoorbellOut from './DbgDoorbellOut'
 import DbgDoorbellIn from './DbgDoorbellIn'
+import DbgDisplay8x8 from './DbgDisplay8x8'
 import UIDoorbellIn from './UIDoorbellIn'
 import DevDoorbellIn from './DevDoorbellIn'
+import DevDisplay8x8 from './DevDisplay8x8'
 import { smStyles } from '../styles/SmFrameStyle';
 
 
@@ -42,6 +44,13 @@ class SmFunctions extends React.Component {
               </>
            )
         }
+        case "display8x8": {
+            return (
+              <>
+              <DbgDisplay8x8 elem = {elem} />
+              </>
+           )
+        }
         default: {
           return (
             <></>
@@ -53,10 +62,13 @@ class SmFunctions extends React.Component {
     const ui =
     (
       <>
-      <UIDoorbellIn doorbellOutFid = {814169} />
+      <UIDoorbellIn
+       doorbellOutFid = {814169}
+       doorbellInFid = {4040403} />
       <DevDoorbellIn
         doorbellOutFid= {814169}
         doorbellInFid= {318100} />
+      <DevDisplay8x8 displayFid= {1890403} />
       </>
     )
 
