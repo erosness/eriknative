@@ -30,6 +30,8 @@ export default class ShowDbgDoorbellIn extends Component {
                     backgroundColor: 'lightgray'}} >
                     Connection type: {func.status.connection} {"\n"}
                     Connection state: {func.status.state} {"\n"}
+                    Door indicator: {func.status.doorIndicator} {"\n"}
+                    Voice indicator: {func.status.voiceIndicator} {"\n"}
                     Connect button: {func.status.callButton} {"\n"}
                     Unlock button: {func.status.unlockButton}
       </Text>
