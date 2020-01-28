@@ -19,16 +19,17 @@ class DevDisplay8x8 extends React.Component {
   }
 
   getImageObject(time){
-    if (time < 0) { return  {"image":"black"}}
-    if (time < 1) { return  {"image":"ring","repeat":"yes"}}
-    if (time < 60) { return  {"image":"didring1"}}
-    if (time < 300) { return  {"image":"didring2"}}
-    if (time < 36000) { return  {"image":"didring3"}}
+    if (time.unlock != 0)  { return  {"image":"key"}}
+    if (time.doorbellAge < 0) { return  {"image":"black"}}
+    if (time.doorbellAge < 1) { return  {"image":"ring","repeat":"yes"}}
+    if (time.doorbellAge < 60) { return  {"image":"didring1"}}
+    if (time.doorbellAge < 300) { return  {"image":"didring2"}}
+    if (time.doorbellAge < 36000) { return  {"image":"didring3"}}
      return  {"image":"didring4"}
   }
 
   processDisplayState() {
-    let image = this.getImageObject(this.props.Display8x8.statusDoorbellOut.doorbellAge)
+    let image = this.getImageObject(this.props.Display8x8.statusDoorbellOut)
     let oldImage = this.props.Display8x8.statusDisplay8x8
     if (image["image"] != oldImage["image"]) {
       this.setDisplay8x8Image(image)

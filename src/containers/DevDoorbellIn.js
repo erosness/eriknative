@@ -46,9 +46,57 @@ class DevDoorbellIn extends React.Component {
 
   }
 
+processDoorIndicator(inFunc, outFunc){
+  let doorStateColor = 'gray'
+  if(this.props.DevDoorbell.statusDoorbellOut != undefined) {
+    if (this.props.DevDoorbell.statusDoorbellOut.unlock == 0 &&
+        this.props.DevDoorbell.statusDoorbellOut.dooropen == 0)
+      doorStateColor = 'white'
+    else if (this.props.DevDoorbell.statusDoorbellOut.unlock == 1 &&
+             this.props.DevDoorbell.statusDoorbellOut.dooropen != 0)
+      doorStateColor = 'green'
+    else if (this.props.DevDoorbell.statusDoorbellOut.unlock == 1 &&
+             this.props.DevDoorbell.statusDoorbellOut.dooropen != 1)
+      doorStateColor = 'amber'
+    else
+      doorStateColor = 'red'
+  }
+  let unit = this.props.unitList[this.props.DevDoorbell.infoDoorbellIn.uid]
+  this.props.dispatch(putFunction(unit,"doorbell-in","door-indicator",{color: doorStateColor}))
+}
+
+processDoorButton() {
+  let inUnit = this.props.unitList[this.props.DevDoorbell.infoDoorbellIn.uid]
+  let outUnit = this.props.unitList[this.props.DevDoorbell.infoDoorbellOut.uid]
+  if(this.props.DevDoorbell.statusDoorbellIn != undefined &&
+     this.props.DevDoorbell.statusDoorbellOut != undefined ) {
+    if(this.props.DevDoorbell.statusDoorbellIn.unlockButton == 1 &&
+      this.props.DevDoorbell.statusDoorbellOut.unlock == 0) {
+      this.props.dispatch(putFunction(outUnit,
+                                      "doorbell-out",
+                                      "lock",
+                                      {"unlock":1}))
+      this.props.dispatch(putFunction(outUnit,
+                                      "doorbell-out",
+                                      "doorbell-age",
+                                      {"age":-1}))
+    }
+    if(this.props.DevDoorbell.statusDoorbellIn.unlockButton == 0 &&
+      this.props.DevDoorbell.statusDoorbellOut.unlock == 1) {
+      this.props.dispatch(putFunction(outUnit,
+                                      "doorbell-out",
+                                      "lock",
+                                      {"unlock":0}))
+    }
+  }
+
+}
+
   processState() {
     this.processVoiceIndicator()
     this.processVoiceButton()
+    this.processDoorButton()
+    this.processDoorIndicator()
   }
 
   render() {

@@ -15,6 +15,7 @@ class ButtonLock extends Component {
                                         "doorbell-out",
                                         "lock",
                                         {"unlock":1}))
+        this.resetDoorbellAge()
       } else {
         this.props.dispatch(putFunction(this.props.unit,
                                         "doorbell-out",
@@ -22,6 +23,13 @@ class ButtonLock extends Component {
                                         {"unlock":0}))
       }
     }
+  }
+
+  resetDoorbellAge() {
+    this.props.dispatch(putFunction(this.props.unit,
+                                    "doorbell-out",
+                                    "doorbell-age",
+                                    {"age":-1}))
   }
 
   render() {
