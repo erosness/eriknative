@@ -20,6 +20,10 @@ class ButtonVoice extends Component {
                                         "doorbell-in",
                                         "connect",
                                         {"disconnect":this.props.outUnitIP}))
+        this.props.dispatch(putFunction(this.props.outUnitIP,
+                                        "doorbell-in",
+                                        "connect",
+                                        {"disconnect":this.props.unit}))
       }
     }
   }

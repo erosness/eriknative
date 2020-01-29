@@ -34,11 +34,19 @@ class DevDoorbellIn extends React.Component {
                                         "doorbell-in",
                                         "connect",
                                         {"connect":outUnit.ip}))
+        this.props.dispatch(putFunction(outUnit,
+                                        "doorbell-out",
+                                        "doorbell-age",
+                                        {"age":-1}))
       }
-      if (this.props.DevDoorbell.statusDoorbellIn.state == 'connected' &&
+      if (this.props.DevDoorbell.statusDoorbellIn.state != 'idle' &&
         this.props.DevDoorbell.statusDoorbellIn.callButton == 0) {
         this.props.dispatch(putFunction(inUnit,
                                         "doorbell-in",
+                                        "connect",
+                                        {"disconnect":outUnit.ip}))
+        this.props.dispatch(putFunction(outUnit,
+                                        "doorbell-out",
                                         "connect",
                                         {"disconnect":outUnit.ip}))
       }
@@ -53,10 +61,10 @@ processDoorIndicator(inFunc, outFunc){
         this.props.DevDoorbell.statusDoorbellOut.dooropen == 0)
       doorStateColor = 'white'
     else if (this.props.DevDoorbell.statusDoorbellOut.unlock == 1 &&
-             this.props.DevDoorbell.statusDoorbellOut.dooropen != 0)
+             this.props.DevDoorbell.statusDoorbellOut.dooropen == 0)
       doorStateColor = 'green'
     else if (this.props.DevDoorbell.statusDoorbellOut.unlock == 1 &&
-             this.props.DevDoorbell.statusDoorbellOut.dooropen != 1)
+             this.props.DevDoorbell.statusDoorbellOut.dooropen == 1)
       doorStateColor = 'amber'
     else
       doorStateColor = 'red'
