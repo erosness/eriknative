@@ -9,7 +9,7 @@ import { putFunction } from '../actions/actionPutFunction'
 class ButtonLock extends Component {
 
   unlockDoor(e) {
-    if(this.props.func.statusDoorbellOut != undefined) {
+/*    if(this.props.func.statusDoorbellOut != undefined) {
       if(this.props.func.statusDoorbellOut.unlock == 0) {
         this.props.dispatch(putFunction(this.props.unit,
                                         "doorbell-out",
@@ -22,7 +22,7 @@ class ButtonLock extends Component {
                                         "lock",
                                         {"unlock":0}))
       }
-    }
+    } */
   }
 
   resetDoorbellAge() {
