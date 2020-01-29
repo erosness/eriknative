@@ -9,22 +9,39 @@ import { putFunction } from '../actions/actionPutFunction'
 class ButtonVoice extends Component {
 
   connectVoice(e) {
-    this.props.dispatch(putFunction(this.props.func.infoDoorbellIn,"doorbell-in","connect",{"connect":"pi@10.0.1.108"}))
+    if(this.props.func.statusDoorbellIn != undefined) {
+      if(this.props.func.statusDoorbellIn.state == 'idle') {
+        this.props.dispatch(putFunction(this.props.unit,
+                                        "doorbell-in",
+                                        "connect",
+                                        {"connect":this.props.outUnitIP}))
+      } else {
+        this.props.dispatch(putFunction(this.props.unit,
+                                        "doorbell-in",
+                                        "connect",
+                                        {"disconnect":this.props.outUnitIP}))
+        this.props.dispatch(putFunction(this.props.outUnitIP,
+                                        "doorbell-in",
+                                        "connect",
+                                        {"disconnect":this.props.unit}))
+      }
+    }
   }
 
   render() {
 
-    let voiceStateColor = 'white'
+    let voiceStateColor = 'gray'
 
-    if(this.props.func.statusDoorbellIn != undefined) {
-      if (this.props.func.statusDoorbellIn.state == 'connected')
-        voiceStateColor = 'red'
-      else if (this.props.func.statusDoorbellIn.state == 'connecting')
-        voiceStateColor = 'lightsteelblue'
-      else if (this.props.func.statusDoorbellIn.state == 'idle')
-        voiceStateColor = 'white'
+    if(this.props.func.statusDoorbellIn != undefined &&
+       this.props.func.statusDoorbellOut != undefined) {
+      if (this.props.func.statusDoorbellIn.state == 'connected' &&
+          this.props.func.statusDoorbellOut.state == 'connected')
+        voiceStateColor = 'green'
+      else if (this.props.func.statusDoorbellIn.state == 'idle' &&
+               this.props.func.statusDoorbellOut.state != 'idle')
+        voiceStateColor = 'lightsalmon'
       else
-        voiceStateColor = 'gray'
+        voiceStateColor = 'white'
     }
 
     return (

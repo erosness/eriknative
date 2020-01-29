@@ -29,13 +29,16 @@ export default class ShowUIDoorbellIn extends Component {
         <View style={{flex: 1, flexDirection: 'row', flexBasis: 'auto', height: 100}}>
           <ButtonDoorbell
             func={func}
-            unit={this.props.unit}
+            unit={this.props.unitDoorbellOut}
             title={"Doorbell"}/>
           <ButtonVoice
             func={func}
+            unit={this.props.unitDoorbellIn}
+            outUnitIP={this.props.unitDoorbellOut.ip}
             title={"Voice"}/>
           <ButtonLock
             func={func}
+            unit={this.props.unitDoorbellOut}
             title={"Lock"}/>
         </View>
       </View>
